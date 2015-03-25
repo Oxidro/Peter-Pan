@@ -72,3 +72,22 @@ void Squirrel::compare(Squirrel squirrel)
 	cout << "The other squirrel is: ";
 	printColor(*squirrel.color);
 }
+
+Warrior::Warrior(int _health, int _strenght, int _deffence, int _spellPower)
+{
+	health = _health;
+	strenght = _strenght;
+	deffence = _deffence;
+	spellPower = _spellPower;
+}
+void Warrior::attack(Warrior warrior)
+{
+	if (this->strenght - warrior.getDeffence > 0)
+	{
+		warrior.setHealth(warrior.getHealth-(strenght - warrior.getDeffence));
+	}
+}
+void Warrior::spellForReducingStrenght(Warrior warrior)
+{
+	warrior.setStrenght(warrior.getStrenght - spellPower);
+}

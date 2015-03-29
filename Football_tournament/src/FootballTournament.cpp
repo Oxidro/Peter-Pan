@@ -7,10 +7,11 @@
 //============================================================================
 
 #include <iostream>
-#include "Team.h"
+#include "ClassTeam.h"
 using namespace std;
 
 int main() {
-	//Tomorrow we begin ...
+	Player p("NotPesho");
+	Team t("TeamOfPesho", 'A');
 	return 0;
 }

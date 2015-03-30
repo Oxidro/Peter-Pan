@@ -8,17 +8,6 @@
 #ifndef CLASSTEAM_H_
 #define CLASSTEAM_H_
 
-class Player
-{
-private:
-	char* name;
-public:
-	Player(){name="Gosho";}
-	Player(char*_name){name=_name;}
-	Player* getPlayer(){return this;};
-	char* getName(){return name;};
-	void print();
-};
 
 
 class Team

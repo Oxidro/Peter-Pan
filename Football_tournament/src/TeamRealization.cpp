@@ -25,7 +25,50 @@ void printStr(char *str)
 		cout << *pointerToStr++;
 	}
 }
+Team::Team()
+{
+	teamName=new char[51];
+	group=0;
+	won=draw=lost=goalDifference=totalPoints=0;
+	top=-1;
+}
 
+void Team::setteamName(char* _teamName)
+{
+	int len=strlen(_teamName);
+	delete[] teamName;
+	teamName = new char[len+1];
+	strcpy(teamName, _teamName);
+	teamName[len+1] = '\0';
+}
+
+Team::Team(const Team& t)
+	: teamName(NULL), group(t.group), won(t.won), draw(t.draw), lost(t.lost), goalDifference(t.goalDifference), totalPoints(t.totalPoints), top(t.top)
+{
+	setteamName(t.teamName);
+}
+
+Team& Team :: operator=(const Team& t)
+{
+	if(this ==	&t)
+		return *this;
+	group=t.group;
+	won=t.won;
+	draw=t.draw;
+	lost=t.lost;
+	goalDifference=t.goalDifference;
+	totalPoints=t.totalPoints;
+	top=t.top;
+	setteamName(t.teamName);
+	return *this;
+}
+
+Team::~Team()
+{
+	delete teamName;
+}
+
+/*
 void Player::print()
 {
 	cout<<"Name: ";
@@ -69,6 +112,6 @@ void Team::printTeamStatistics()
 	cout<<won<<"       "<<draw<<"   "<<lost<<"   "<<goalDifference<<"   "<<totalPoints;
 
 }
-
+*/
 
 

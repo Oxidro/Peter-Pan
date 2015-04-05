@@ -10,6 +10,20 @@
 
 const int MAX = 100;
 
+class TestingTheBigFour
+{
+private:
+	char* str;
+	int num;
+public:
+	TestingTheBigFour();
+	TestingTheBigFour(const TestingTheBigFour&);
+	TestingTheBigFour& operator=(const TestingTheBigFour&);
+	~TestingTheBigFour();
+
+	void setStr(char*);
+};
+
 class Squirrel
 {
 private:
@@ -18,12 +32,16 @@ private:
 	char* color;
 
 public:
-	Squirrel(int _fluffiness, double _tailLenght, char* _color);
+	Squirrel();
+	~Squirrel();
+	Squirrel(const Squirrel&);
+	Squirrel &operator=(const Squirrel&);
 
 	int getFluffiness(){return fluffiness;};
 	double getTailLenght(){return tailLenght;};
-	char* getColor(){return color;};
+	char* getColor();
 
+	void setColor(char*);
 	void rePaint(char* _color){color=_color;};
 	void trim(int _fluffiness) { fluffiness = _fluffiness; };
 	void compare(Squirrel squirrel);
@@ -96,6 +114,13 @@ public:
 		concertHall=_concertHall;
 		numberOfSeats=_numberOfSeats;
 	}
+
+	Concert();
+	Concert(const Concert&);
+	Concert& operator=(const Concert&);
+	~Concert();
+
+	void setTitle(char*);
 	void changeHall(char*);
 	void delay(double);
 	void print();
@@ -156,6 +181,12 @@ public:
 		intact=_intact;
 	}
 
+	Baloon();
+	Baloon(const Baloon&);
+	Baloon & operator=(const Baloon&);
+	~Baloon();
+
+	void setShape(char*);
 	void inflate();
 	void newShape(char*);
 	void print();
@@ -202,6 +233,11 @@ public:
 		quantity=_quantity;
 		nameOfProduct=_nameOfProduct;
 	}
+	Product();
+	Product(const Product&);
+	Product& operator=(const Product&);
+	~Product();
+	void setNameOfProduct(char*);
 	void promotion()
 	{
 		price-=price*1/10;
@@ -232,6 +268,13 @@ public:
 		conditions=_conditions;
 		hoursOfSpreading=_hoursOfSpreading;
 	}
+
+	Bacteria();
+	~Bacteria();
+	void setType(char*);
+	Bacteria(const Bacteria&);
+	Bacteria& operator=(const Bacteria&);
+
 	void changeConditions(char c)
 	{
 		conditions=c;
@@ -255,24 +298,21 @@ public:
 class Car
 {
 private:
+	char* brand;
 	int engine;
 	int brakes;
 	double engineScore;
 	double brakesScore;
 	double overallScore;
 public:
-	Car(int _engine=1, int _brakes=1)
-	{
-		engine=_engine;
-		brakes=_brakes;
-		engineScore=1;
-		brakesScore=1;
-		overallScore=1;
-
-	}
+	Car();
+	Car(const Car&);
+	Car& operator =(const Car&);
+	~Car();
 
 	void getBetterEngine();
 	void getBetterBreaks();
+	void setBrand(char*);
 	void score();
 	void printCar();
 };
@@ -298,3 +338,4 @@ public:
 };
 
 #endif /* WEETASK1_H_ */
+

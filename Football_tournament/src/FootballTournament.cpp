@@ -11,7 +11,7 @@
 using namespace std;
 
 int main() {
-	Player p("NotPesho");
-	Team t("TeamOfPesho", 'A');
+	Team t1, t2;
+	t1=t2;
 	return 0;
 }

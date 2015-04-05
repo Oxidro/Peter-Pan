@@ -15,18 +15,18 @@ class Team
 private:
 	char* teamName;
 	char group;
-	Player* players[18];
+//	Player* players[18];
 	int won, draw, lost, goalDifference, totalPoints, top;
 
 public:
-
-	Team(char* _teamName, char _group)
-	{
-		teamName=_teamName;
-		group=_group;
-		won=draw=lost=goalDifference=totalPoints=0;
-		top=-1;
-	}
+	// Default constructor
+	Team();
+	// Coppy constructor
+	Team(const Team&);
+	// Operator =
+	Team &operator=(const Team&);
+	// Destructor
+	~Team();
 
 	char* getTeamName(){return teamName;};
 	char getGroup(){return group;};
@@ -39,7 +39,7 @@ public:
 
 	Team* getTeam(){return this;};
 
-	void setteamName(char* _teamName){teamName=_teamName;};
+	void setteamName(char* _teamName);
 	void setGroup(char _group){group=_group;};
 	void setWor(int _won){won=_won;};
 	void setDraw(int _draw){draw=_draw;};
@@ -47,9 +47,9 @@ public:
 	void setGoalDifference(int _goalDifference){goalDifference=_goalDifference;};
 	void setTotalPoints(int _totalPoints){totalPoints=_totalPoints;};
 
-	void addPlayer(Player*);
+/*	void addPlayer(Player*);
 	void removePlayer(Player*);
-
+*/
 	void printTeam();
 	void printTeamStatistics();
 };

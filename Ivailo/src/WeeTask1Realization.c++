@@ -9,7 +9,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include "WeeTask1.h"
-
+const int MIN = 50;
 using namespace std;
 
 void printStr(char *color)
@@ -22,13 +22,72 @@ void printStr(char *color)
 	cout << endl;
 }
 
+TestingTheBigFour::TestingTheBigFour()
+{
+	str=new char[MIN];
+	num=0;
+}
+void TestingTheBigFour::setStr (char* _str)
+{
+	int len=strlen(_str);
+	delete[] str;
+	str = new char[len+1];
+	strcpy(str, _str);
+	str[len+1] = '\0';
+}
+
+TestingTheBigFour::TestingTheBigFour(const TestingTheBigFour& t)
+	:num(t.num)
+{
+	setStr(t.str);
+}
+TestingTheBigFour& TestingTheBigFour :: operator=(const TestingTheBigFour& t)
+{
+	if(this == &t)
+		return *this;
+	setStr(t.str);
+	num=t.num;
+	return *this;
+}
+TestingTheBigFour::~TestingTheBigFour()
+{
+	delete str;
+}
+
 //-----------------------------------------------------------------------------
 
-Squirrel::Squirrel(int _fluffiness, double _tailLenght, char* _color)
+Squirrel::Squirrel()
 {
-	fluffiness = _fluffiness;
-	tailLenght = _tailLenght;
-	color=_color;
+	color=new char[MIN];
+	fluffiness=0;
+	tailLenght=0;
+}
+void Squirrel::setColor (char* _color)
+{
+	int len=strlen(_color);
+	delete[] color;
+	color = new char[len+1];
+	strcpy(color, _color);
+	color[len+1] = '\0';
+}
+
+Squirrel::Squirrel(const Squirrel& s)
+	:fluffiness(s.fluffiness), tailLenght(s.tailLenght)
+{
+	setColor(s.color);
+}
+Squirrel& Squirrel :: operator=(const Squirrel& s)
+{
+	if(this == &s)
+		return *this;
+	fluffiness=s.fluffiness;
+	tailLenght=s.tailLenght;
+	setColor(s.color);
+	return *this;
+}
+Squirrel::~Squirrel()
+{
+	delete color;
 }
 
 void Squirrel::compare(Squirrel squirrel)
@@ -126,6 +185,41 @@ void Box::print()
 
 //-----------------------------------------------------------------------------
 
+Concert::Concert()
+{
+	title=new char[MIN];
+	beginning=0;
+	numberOfSeats=0;
+	concertHall="";
+}
+void Concert::setTitle (char* _title)
+{
+	int len=strlen(_title);
+	delete[] title;
+	title = new char[len+1];
+	strcpy(title, _title);
+	title[len+1] = '\0';
+}
+
+Concert::Concert(const Concert& c)
+	:beginning(c.beginning), concertHall(c.concertHall), numberOfSeats(c.numberOfSeats)
+{
+	setTitle(c.title);
+}
+Concert& Concert :: operator=(const Concert& c)
+{
+	if(this == &c)
+		return *this;
+	beginning=c.beginning;
+	numberOfSeats=c.numberOfSeats;
+	setTitle(c.title);
+	return *this;
+}
+Concert::~Concert()
+{
+	delete title;
+}
+
 void Concert::print()
 {
 	cout<<"Concert hall: ";
@@ -144,6 +238,41 @@ void Concert::delay(double _beginning)
 }
 
 //-----------------------------------------------------------------------------
+
+Baloon::Baloon()
+{
+	shape=new char[MIN];
+	volume=0;
+	intact=1;
+}
+void Baloon::setShape (char* _shape)
+{
+	int len=strlen(_shape);
+	delete[] shape;
+	shape = new char[len+1];
+	strcpy(shape, _shape);
+	shape[len+1] = '\0';
+}
+
+Baloon::Baloon(const Baloon& b)
+	:volume(b.volume), intact(b.intact)
+{
+	setShape(b.shape);
+}
+Baloon& Baloon :: operator=(const Baloon& b)
+{
+	if(this == &b)
+		return *this;
+	setShape(b.shape);
+	volume=b.volume;
+	intact=b.intact;
+	return *this;
+}
+Baloon::~Baloon()
+{
+	delete shape;
+}
+
 
 void Baloon::inflate()
 {
@@ -205,6 +334,40 @@ void Plant::collectFruits()
 
 //-----------------------------------------------------------------------------
 
+Product::Product()
+{
+	nameOfProduct=new char[MIN];
+	price=0;
+	quantity=0;
+}
+void Product::setNameOfProduct (char* _nameOfProduct)
+{
+	int len=strlen(_nameOfProduct);
+	delete[] nameOfProduct;
+	nameOfProduct = new char[len+1];
+	strcpy(nameOfProduct, _nameOfProduct);
+	nameOfProduct[len+1] = '\0';
+}
+
+Product::Product(const Product& p)
+	:price(p.price), quantity(p.quantity)
+{
+	setNameOfProduct(p.nameOfProduct);
+}
+Product& Product :: operator=(const Product& p)
+{
+	if(this == &p)
+		return *this;
+	setNameOfProduct(p.nameOfProduct);
+	price=p.price;
+	quantity=p.quantity;
+	return *this;
+}
+Product::~Product()
+{
+	delete nameOfProduct;
+}
+
 void Product::print()
 {
 	cout<<"Product name: ";
@@ -215,6 +378,48 @@ void Product::print()
 
 //-----------------------------------------------------------------------------
 
+Bacteria::Bacteria()
+{
+	type=new char[MIN];
+	reproductionRate=0;
+	colonySize=0;
+	conditions=0;
+	hoursOfSpreading=0;
+}
+
+Bacteria::~Bacteria()
+{
+	delete type;
+}
+
+void Bacteria::setType (char* _type)
+{
+	int len=strlen(_type);
+	delete[] type;
+	type = new char[len+1];
+	strcpy(type, _type);
+	type[len+1] = '\0';
+}
+
+Bacteria& Bacteria :: operator=(const Bacteria& b)
+{
+	if(this == &b)
+		return *this;
+	setType(b.type);
+	reproductionRate=b.reproductionRate;
+	colonySize=b.colonySize;
+	conditions=b.conditions;
+	hoursOfSpreading=b.hoursOfSpreading;
+	return *this;
+}
+
+Bacteria::Bacteria(const Bacteria& b)
+	: reproductionRate(b.reproductionRate), colonySize(b.colonySize), conditions(b.conditions),hoursOfSpreading(b.hoursOfSpreading)
+{
+	setType(b.type);
+}
+
+
 void Bacteria::print()
 {
 	cout<<"Bacteria type: ";
@@ -223,6 +428,45 @@ void Bacteria::print()
 }
 
 //-----------------------------------------------------------------------------
+
+Car::Car()
+{
+	brand=new char[MIN];
+	engine=brakes=engineScore=brakesScore=overallScore=0;
+}
+
+Car::~Car()
+{
+	delete brand;
+}
+
+void Car::setBrand (char* _brand)
+{
+	int len=strlen(_brand);
+	delete[] brand;
+	brand = new char[len+1];
+	strcpy(brand, _brand);
+	brand[len+1] = '\0';
+}
+
+Car& Car :: operator=(const Car& c)
+{
+	if(this == &c)
+		return *this;
+	setBrand(c.brand);
+	engine=c.engine;
+	brakes=c.brakes;
+	engineScore=c.engineScore;
+	brakesScore=c.brakesScore;
+	overallScore=c.overallScore;
+	return *this;
+}
+
+Car::Car(const Car& c)
+	: brand(c.brand), engine(c.engine), brakes(c.brakes), engineScore(c.engineScore), brakesScore(c.brakesScore), overallScore(c.overallScore)
+{
+	setBrand(c.brand);
+}
 
 void Car::getBetterEngine()
 {

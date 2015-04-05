@@ -12,10 +12,10 @@ using namespace std;
 
 int main() {
 	cout<<"Testing Squirrel ... "<<endl<<endl;
-	Squirrel squirrel1(7, 6.5, "brown"), squirrel2(9, 7.8, "black");
+	/*Squirrel squirrel1(7, 6.5, "brown"), squirrel2(9, 7.8, "black");
 	squirrel1.trim(6);
 	squirrel2.rePaint("white");
-	squirrel1.compare(squirrel2);
+	squirrel1.compare(squirrel2);*/
 	cout<<endl<<"End of class Squirrel test ..."<<endl<<endl;
 	//------------------------------------------------------------------------------
 	cout<<"Testing Warrior ... "<<endl<<endl;
@@ -101,5 +101,6 @@ int main() {
 	while(!t.empty())
 		cout<<t.pop()<<endl;
 	cout<<endl<<"End of class Tail test ..."<<endl<<endl;
+// yo
 	return 0;
 }

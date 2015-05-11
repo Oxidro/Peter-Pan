@@ -7,6 +7,7 @@
 
 #include "math.h"
 #include <cstdlib>
+#include "Player.h"
 
 struct coordinates
 {
@@ -31,10 +32,14 @@ int operator-(coordinates a, coordinates b)
 	return abs(abs(a.y-b.y)-abs(a.x-b.x)/2);
 }
 
-class Goalkeeper
+class Goalkeeper :public Player
 {
 private:
+	/*
+	from class Player
 	coordinates mySpot; // coordinates of the goalkeeper
+	int id; // id of a player for easy searching
+	*/
 	double reactionTime; //seconds needed to start running
 	int span; //arms spread + small jump to a side
 	double speed; // squares per second

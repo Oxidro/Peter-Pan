@@ -13,7 +13,7 @@ private:
 	bool injured();
 	bool playing();
 public:
-	Player(char* ="", int =0,int =0,int =0,double =0, bool =0);
+	Player(char*, int, int, int, double, bool);
 	Player(const Player&);
 	Player& operator=(const Player&);
 	~Player();
@@ -34,6 +34,6 @@ public:
 	void play();
 	void heal();
 	void punish();
-}
+};
 
 #endif // PLAYER_H_INCLUDED

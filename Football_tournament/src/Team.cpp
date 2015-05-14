@@ -6,11 +6,13 @@
  */
 #include<iostream>
 #include"string.h"
-#include"ClassTeam.h"
+
+#include "Team.h"
 using namespace std;
 
 void shortName(char c)
 {
+
 	if(c>=97 || c<=122)
 		cout<<c-32;
 	else

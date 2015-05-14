@@ -7,7 +7,8 @@
 //============================================================================
 
 #include <iostream>
-#include "ClassTeam.h"
+
+#include "Team.h"
 using namespace std;
 
 int main() {

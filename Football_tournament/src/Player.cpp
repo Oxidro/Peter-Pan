@@ -1,35 +1,34 @@
 #include <iostream>
 using namespace std;
 #include "Player.h"
-#include <cstdlib>
-#include <ctime>
-#include <cstring>
-srand(time(0));
 
-bool Player::injured(){
-	if(health==0) return true;
-	else return false;
-}
-bool Player::playing(){
-	if(!injured && !penalty)
-		return true;
-	else return false;
-}
-Player::Player(char* _name, int age, int health,int exp,double pay,bool penalty){
+Player::Player(char* _name, int _id, int _number, Point _position , int _speed,double _strenght, double _accuracity)
+{
     setName(_name);
-	this->age=age;
-	this->health=health;
-	this->experience=exp;
-	this->payment=pay;
-	this->penalty=penalty;
+    id=_id;
+    number=_number;
+    position=_position;
+    speed=_speed;
+    strenght=_strenght;
+    accuracity=_accuracity;
 }
 Player::Player(const Player& other)
-:name(NULL), age(other.age), health(other.health), experience(other.experience), payment(other.payment), penalty(other.penalty)
+:name(NULL),id(other.id), number(other.number), position(other.position), speed(other.speed), strenght(other.strenght), accuracity(other.accuracity)
 {
     setName(other.name);
 }
-Player& Player::operator=(const Player& other){
-    Player(other);
+Player& Player::operator=(const Player& other)
+{
+	if(this!=&other)
+		return this;
+	delete[] name;
+	setName(other.name);
+	id=other.id;
+    number=other.number;
+    position=other.position;
+    speed=other.speed;
+    strenght=other.strenght;
+    accuracity=other.accuracity;
     return *this;
 }
 Player::~Player(){
@@ -45,28 +44,15 @@ void Player::setName(char* _name){
 }
 void Player::print(){
 	cout<<"Player: "<< getName;
-	cout<<"\nAge: "<<getAge;
-	cout<<"\nHealth: "<<getHealth;
-	cout<<"\nExperience: "<<getExp;
-	cout<<"\nHas penalty: "<<getPenalty;
-	cout<<"\nPayment: "<<getPayment;
+	cout<<"\nNumber: "<<getNumber;
+	cout<<"\nPosition: "<<getPosition;
+	cout<<"\nSpeed: "<<getSpeed;
+	cout<<"\nStrenght: "<<getStrenght;
+	cout<<"\nAccuracity: "<<getAccuracity;
 }
-void Player::train(){
-	setExp(getExp()+rand()%10);
-	cout<<"His experience has increased to "<<getExp()<<endl;
-
-}
-void Player::play(){
-	setExp(getExp()+rand()%100);
-	cout<<"His experience has increased to "<<getExp()<<endl;
-}
-void Player::heal(){
-	setHealth(getHealth()+rand()%50);
-	cout<<"His health has increased to "<<getHealth()<<endl;
-
-}
-void Player::punish(){
-	if(getPenalty){
-		setPenalty(getPenalty-300);
-	}
+bool Player::operator==(Player const& other)
+{
+	if(id==other.id)
+		return true;
+	return false;
 }

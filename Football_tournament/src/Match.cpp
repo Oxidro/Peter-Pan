@@ -1,4 +1,5 @@
 void Match::setStartPosition(Team A_, Team B_) {
+
 }
 
 bool Match::playerIsCloseToTheBall(Player p) {
@@ -36,7 +37,10 @@ void Match::movement(Player p) {
 }
 
 void Match::playMatch() {
-	for (int min = 1; min <= 90; min++) {
-
+	for(int min = 1; min <= 90; min++) {
+		for(int i=0; i<11; i++) {
+			movement(A.players[i]);
+			movement(B.players[i]);
+		}
 	}
 }

@@ -8,6 +8,8 @@
 #ifndef POINT_H_
 #define POINT_H_
 
+#include "math.h"
+
 class Point {
 private:
 	int x;
@@ -33,6 +35,10 @@ public:
 	void mul(int a);
 
 	void dump();
+
+	int distance(Point);
+
+	bool keeperCanCatchTheBall(Point, int);
 
 	Point& operator=(Point&);
 

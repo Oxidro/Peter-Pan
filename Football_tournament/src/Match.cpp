@@ -23,7 +23,7 @@ int Match::ballStatus(Player p) {
 
 void Match::movement(Player p) {
 	if (ball == p.getPosition()) {
-		ball = p.whatToDoWhitTheBall();
+		ball = p.whatToDoWithTheBall();
 	} else if (ballStatus(p) == 1) {
 		p.run(2);
 	} else {

@@ -8,10 +8,11 @@
 #ifndef CLASSTEAM_H_
 #define CLASSTEAM_H_
 
+#include "Player.h"
 class Team {
 private:
 	char* teamName;
-	Player* players[18];
+	Player players[18];
 	/*
 	 char group;
 	 int won, draw, lost, goalDifference, totalPoints, top;

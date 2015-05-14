@@ -1,6 +1,8 @@
 #ifndef PLAYER_H_INCLUDED
 #define PLAYER_H_INCLUDED
 
+#include "Point.h"
+
 class Player{
 private:
 	char* name;

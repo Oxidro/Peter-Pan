@@ -12,8 +12,31 @@ class Point {
 private:
 	int x;
 	int y;
+
+public:
+	Point(int, int);
+
+	Point();
+
+	int get_x();
+
+	int get_y();
+
+	void set_x(int);
+
+	void set_y(int);
+
+	void add(Point);
+
+	void sub(Point);
+
+	void mul(int a);
+
+	void dump();
+
+	Point& operator=(Point&);
+
+	bool operator==(Point&);
 };
-
-
 
 #endif /* POINT_H_ */

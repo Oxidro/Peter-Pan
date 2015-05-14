@@ -17,12 +17,13 @@ private:
 public:
 	void setStartPosition(Team, Team);
 
-	void movement();
+	void movement(Player);
 
 	void playMatch();
 
-	Point getPlayerPos(Player);
+	int ballStatus(Player);
 
+	bool playerIsCloseToTheBall(Player);
 };
 
 

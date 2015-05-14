@@ -12,6 +12,7 @@ private:
 	double accuracity;
 
 public:
+
 	Player(char*, int,int,  Point,int ,double , double);
 	Player(const Player&);
 	Player& operator=(const Player&);
@@ -37,10 +38,12 @@ public:
 	void setStrenght(double _strenght) {strenght=_strenght;};
 
 	void print();
+
 	bool operator==(Player const&);
 
 	void run(int);
 	Point whatToDoWithTheBall();
+
 };
 
 #endif // PLAYER_H_INCLUDED

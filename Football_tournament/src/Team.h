@@ -39,6 +39,8 @@ public:
 
 	void setteamName(char* _teamName);
 
+	bool hasPlayer(Player p);
+
 	/*	void addPlayer(Player*);
 	 void removePlayer(Player*);
 	 */

@@ -52,6 +52,14 @@ Team::~Team() {
 	delete teamName;
 }
 
+bool Team::hasPlayer(Player p) {
+	for(int i=0; i<18; i++)
+		if(p == players[i])
+			return true;
+
+	return false;
+}
+
 /*
  void Player::print()
  {

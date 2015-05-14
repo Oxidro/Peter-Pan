@@ -23,14 +23,14 @@ int Match::ballStatus(Player p) {
 
 void Match::movement(Player p) {
 	if (ball == p.getPosition()) {
-		ball = whatToDoWhitTheBall();
+		ball = p.whatToDoWhitTheBall();
 	} else if (ballStatus(p) == 1) {
 		p.run(2);
 	} else {
 		if (playerIsCloseToTheBall(p))
-			run(1);
+			p.run(1);
 		else
-			run(3);
+			p.run(3);
 	}
 
 }

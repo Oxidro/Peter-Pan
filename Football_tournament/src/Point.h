@@ -33,6 +33,10 @@ public:
 	void mul(int a);
 
 	void dump();
+
+	Point& operator=(Point&);
+
+	bool operator==(Point&);
 };
 
 #endif /* POINT_H_ */

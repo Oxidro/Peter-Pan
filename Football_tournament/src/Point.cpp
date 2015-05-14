@@ -44,6 +44,22 @@ void Point::dump() {
 	cout << "(" << x << ", " << y << ")" << endl;
 }
 
+bool Point::operator==(Point& p){
+	if(x==p.x && y==p.y)
+		return true;
+
+	return false;
+}
+
+Point& Point::operator=(Point& p) {
+	if(this != &p) {
+		x = p.x;
+		y = p.y;
+	}
+
+	return *this;
+}
+
 Point sum(Point p1, Point p2) {
 	p1.add(p2);
 	return p1;

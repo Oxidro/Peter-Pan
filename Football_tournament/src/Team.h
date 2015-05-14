@@ -14,9 +14,11 @@ class Team
 {
 private:
 	char* teamName;
+	Player* players[18];
+	/*
 	char group;
-//	Player* players[18];
 	int won, draw, lost, goalDifference, totalPoints, top;
+	*/
 
 public:
 	// Default constructor

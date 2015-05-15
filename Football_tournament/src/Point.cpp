@@ -40,6 +40,19 @@ void Point::mul(int a) {
 	x *= a;
 	y *= a;
 }
+
+int Point::distance(Point p) {
+	return abs(abs(x-p.x)-abs(y-p.y)/2);
+}
+
+bool Point::keeperCanCatchTheBall(Point middle, int len) {
+	if(x<=middle.x+len && x>=middle.x-len && y<=middle.y+len && y>=middle.y-len) {
+		return true;
+	}
+	return false;
+}
+
+
 void Point::dump() {
 	cout << "(" << x << ", " << y << ")" << endl;
 }

@@ -45,6 +45,11 @@ void Player::setName(char* _name){
     name= new char[strlen(_name)+1];
     strcpy(name,_name);
 }
+
+Point Player::whatToDoWithTheBall() {
+	return *this;
+}
+
 void Player::print(){
 	cout<<"Player: "<< getName;
 	cout<<"\nNumber: "<<getNumber;

@@ -54,7 +54,7 @@ public:
 
 	bool operator==(Player const&);
 
-	void pass();
+	void passTheBall();
 
 	void run(int);
 	Point whatToDoWithTheBall();

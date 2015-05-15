@@ -69,3 +69,40 @@ Point sub(Point p1, Point p2) {
 	p1.sub(p2);
 	return p1;
 }
+
+bool Point::operator<(Point const& point)
+{
+	if(x<point.x && y<point.y)
+		return true;
+	return false;
+}
+
+bool Point::operator<=(Point const& point)
+{
+	if(operator<(point) || *this==point)
+		return true;
+	return false;
+}
+
+bool Point::operator>=(Point const& point)
+{
+	if(point<(*this) || *this==point)
+		return true;
+	return false;
+}
+
+Point Point::operator+(int n)
+{
+	Point p=*this;
+	p.x+=n;
+	p.y+=n;
+	return *p;
+}
+
+Point Point::operator-(int n)
+{
+	Point p=*this;
+	p.x-=n;
+	p.y-=n;
+	return *p;
+}

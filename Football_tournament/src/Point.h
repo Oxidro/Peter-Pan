@@ -1,7 +1,7 @@
 /*
  * Point.h
  *
- *  Created on: 10.05.2015 ã.
+ *  Created on: 10.05.2015 ï¿½.
  *      Author: Deni
  */
 
@@ -37,6 +37,12 @@ public:
 	Point& operator=(Point&);
 
 	bool operator==(Point&);
+
+	bool operator<(Point const&);
+	bool operator<=(Point const&);
+	bool operator>=(Point const&);
+	Point operator+(int);
+	Point operator-(int);
 };
 
 #endif /* POINT_H_ */

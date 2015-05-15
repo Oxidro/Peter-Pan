@@ -3,6 +3,8 @@ void Match::setStartPosition(Team A_, Team B_) {
 
 bool Match::playerIsCloseToTheBall(Player p) {
 
+	if(p.zone(ball))
+		return true;
 	return false;
 }
 

@@ -49,7 +49,7 @@ public:
 
 bool Goalkeeper::defend(coordinates landing, coordinates shootingPoint, double _speed)
 {
-	double visibility=(rand()%101)/100; // from 0 to 1 depending on the situation
+	double visibility=rand()%1; // from 0 to 1 depending on the situation
 	double defendingRadius;
 	if(landing(mySpot,span))
 		return true;

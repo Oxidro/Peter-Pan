@@ -1,10 +1,20 @@
 #ifndef PLAYER_H_INCLUDED
 #define PLAYER_H_INCLUDED
 
+bool Zone::operator()(Point const& point)
+{
+	if(point>=bottomRight && point<=topLeft)
+		return true;
+	return false;
+}
+
+#include "Point.h"
+
 class Player{
 private:
 	char* name;
 	int id;
+	Zone zone;
 	int number;
 	Point position;
 	int speed;
@@ -13,10 +23,13 @@ private:
 
 public:
 
-	Player(char*, int,int,  Point,int ,double , double);
+	Player(char*, int, int, Zone, Point, int ,double , double);
 	Player(const Player&);
 	Player& operator=(const Player&);
 	~Player();
+
+	void setZone(Zone _zone){zone=_zone;};
+	Zone getZone() {return Zone;};
 
 	void setNumber(int _number){number=_number;};
 	int getNumber(){return number;};
@@ -40,6 +53,8 @@ public:
 	void print();
 
 	bool operator==(Player const&);
+
+	void pass();
 
 	void run(int);
 	Point whatToDoWithTheBall();

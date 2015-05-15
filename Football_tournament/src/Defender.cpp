@@ -2,15 +2,24 @@
 #include "Player.h"
 using namespace std;
 
-class defender
+class Defender : Player
 {
 private:
-    int speed;
-    double strength;
-    double accuracity;
+	double aggression;
 public:
-     bool defend(coordinates enemy, coordinates landing);
-     friend coordinates shoot(nearbyTeammates());
+	void defend();
 };
+
+void Defender::defend()
+{
+	if(enemy player has the ball && enemy player in my zone)
+	{
+		ball=this->position;
+		if(rand() % aggression >=aggression/2)
+		{
+			fal;
+		}
+	}
+}
 
 

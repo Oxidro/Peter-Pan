@@ -101,30 +101,41 @@ void Player::run(int type)
 
 Point Player::whatToDoWithTheBall()
 {
-	if(canRun)
+	if(false)
 	{
-		run;
+		;
 	}
-	else if(canShoot)
+	else if(position+strenght>=gatePosition)
 	{
-		shoot;
+		randomShot();
 	}
 	else
 	{
-		pass;
+		passTheBall();
 	}
 }
 
-void pass()
+void Player::passTheBall()
 {
     int* nearbyTeammates=new int[11];
     int j=0;
     for(int i=0; i<11; i++)
     {
     	Point teammatePosition=Team.getPlayers()[i].position;
-        if(teammatePosition<=position+5 && teammatePosition>=position-5)
+        if(teammatePosition<=position+strenght && teammatePosition>=position-strenght)
             nearbyTeammates[j++]=Team.getPlayers()[i];
     }
-    nearbyTeammates[j]=-1;
-    return nearbyTeammates;
+    ball=nearbyTeammates[rand() % j];
+}
+
+void Attacker::shoot()
+{
+	Point shootTo=gatePosition.get_y()+rand() % gateLenght/2 + -gateLenght/2;
+	ball=shootTo+(rand() % accuracity + -accuracity);
+}
+
+void Player::randomShot()
+{
+	Point shootTo((position.get_x+rand() % strenght + 1) , (position.get_y()+rand() % accuracity+ -accuracity));
+	ball=shootTo;
 }

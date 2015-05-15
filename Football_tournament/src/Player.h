@@ -17,6 +17,7 @@ private:
 	Zone zone;
 	int number;
 	Point position;
+
 	int speed;
 	double strenght;
 	double accuracity;
@@ -55,6 +56,7 @@ public:
 	bool operator==(Player const&);
 
 	void passTheBall();
+	void randomShot();
 
 	void run(int);
 	Point whatToDoWithTheBall();

@@ -128,12 +128,6 @@ void Player::passTheBall()
     ball=nearbyTeammates[rand() % j];
 }
 
-void Attacker::shoot()
-{
-	Point shootTo=gatePosition.get_y()+rand() % gateLenght/2 + -gateLenght/2;
-	ball=shootTo+(rand() % accuracity + -accuracity);
-}
-
 void Player::randomShot()
 {
 	Point shootTo((position.get_x+rand() % strenght + 1) , (position.get_y()+rand() % accuracity+ -accuracity));

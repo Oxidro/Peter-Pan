@@ -1,7 +1,7 @@
 /*
  * Match.h
  *
- *  Created on: 10.05.2015 ã.
+ *  Created on: 10.05.2015 ï¿½.
  *      Author: Deni
  */
 
@@ -15,6 +15,8 @@ private:
 	Point ball;
 
 public:
+	Match(Team, Team, Point);
+
 	void setStartPosition(Team, Team);
 
 	void movement(Player);

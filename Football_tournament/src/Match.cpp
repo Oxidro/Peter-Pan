@@ -1,3 +1,10 @@
+
+Match::Match(Team _team1, Team _team2, Point ball=(60,45))
+{
+	A=_team1;
+	B=_team1;
+}
+
 void Match::setStartPosition(Team A_, Team B_) {
 
 }

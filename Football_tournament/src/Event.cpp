@@ -5,27 +5,13 @@
  *      Author: ivko
  */
 
-const int MAX=100;
+#include "Event.h"
 
-struct Violation
+std::ostream& operator<<(std::ostream& os, Event event)
 {
-	int noPunishment;
-	int yellowCards;
-	int redCards;
-public:
-	Violation(int noPunishment=0, int yellowCards=0, int redCards=0);
-};
-
-class Event
-{
-	char ballPosition[MAX];
-	int goalsOfTeamA;
-	int goalsOfTeamB;
-	Violation violationsA;
-	Violation violationsB;
-
-public:
-
-};
-
-
+//	os<<A.getTeamName()<<"                                  "<<B.getTeamName();
+	os<<"               "<<event.goalsOfTeamA<<":"<<event.goalsOfTeamB<<"                ";
+	os<<"Fals: "<<event.violationsA.noPunishment<<" Yellow Cards: "<<event.violationsA.yellowCards<<" Red Cards: "<<event.violationsA.redCards<<" Fals: "<<event.violationsB.noPunishment<<" Yellow Cards: "<<event.violationsB.yellowCards<<" Red Cards: "<<event.violationsB.redCards;
+	os<<"The ball is :"<<event.ballPosition;
+	return os;
+}

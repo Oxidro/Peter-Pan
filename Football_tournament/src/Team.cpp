@@ -10,15 +10,22 @@
 #include "Team.h"
 using namespace std;
 
-void printStr(char *str) {
+void printStr(char *str)
+{
 	char* pointerToStr = str;
 	while (*pointerToStr) {
 		cout << *pointerToStr++;
 	}
 }
-Team::Team() {
+Team::Team()
+{
 	teamName = new char[51];
+}
 
+Team::Team(char* _name, Player _players[])
+{
+	teamName=_name;
+	players=_players;
 }
 
 void Team::setteamName(char* _teamName) {
@@ -50,7 +57,6 @@ bool Team::hasPlayer(Player p) {
 	for(int i=0; i<18; i++)
 		if(p == players[i])
 			return true;
-
 	return false;
 }
 

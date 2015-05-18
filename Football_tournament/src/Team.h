@@ -28,6 +28,8 @@ public:
 	// Destructor
 	~Team();
 
+	Team(char*, Player[]);
+
 	char* getTeamName() {
 		return teamName;
 	}

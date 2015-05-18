@@ -5,7 +5,8 @@ using namespace std;
 class Defender : Player
 {
 private:
-	double aggression;
+	int aggression;
+	double superPower;
 public:
 	void defend();
 };
@@ -14,10 +15,23 @@ void Defender::defend()
 {
 	if(enemy player has the ball && enemy player in my zone)
 	{
-		ball=this->position;
-		if(rand() % aggression >=aggression/2)
+		int n=rand() % aggression;
+		if(n<=aggression/4)
 		{
-			fal;
+			if(rand() % superPower>superPower/2)
+				ball=this->position;
+		}
+		if(n>aggression/4 && n<=aggression/2)
+		{
+			noPunishment++;
+		}
+		if(n>aggression/2 && n<=3*(aggression/4))
+		{
+			yellowCard++;
+		}
+		if(n>3*(aggression/4))
+		{
+			redCard++;
 		}
 	}
 }

@@ -61,6 +61,7 @@ public:
 	void run(int);
 	Point whatToDoWithTheBall();
 
+	virtual void specialMove();
 };
 
 #endif // PLAYER_H_INCLUDED

@@ -1,7 +1,7 @@
 #ifndef MIDFIELDER_H_INCLUDED
 #define MIDFIELDER_H_INCLUDED
 
-class Midfielder:public Player{
+class Midfielder: public Player{
 private:
     int accuracy;
     int strength;
@@ -14,7 +14,7 @@ public:
     int getStrenght() const {return strength;};
     int getWillToPass() const {return willingnessToPass;};
 
-    //виртуални функции
+    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     void run();
     void shoot();
 };

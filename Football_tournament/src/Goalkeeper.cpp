@@ -5,24 +5,14 @@
  *      Author: ivko
  */
 
-#include "math.h"
-#include <cstdlib>
-#include "Player.h"
+#include "Goalkeeper.h"
 
-class Goalkeeper : Player
-{
-private:
-	int span; //arms spread + small jump to a side
-public:
-	bool defend(Point, Point, int);
-};
-
-bool Goalkeeper::defend()
+void Goalkeeper::specialMove()
 {
 	Zone defendingRadius(position+span, position-span);
 	if(defendingRadius(ball))
-		return true;
-	return false;
+		goalkeeper has the ball;
+	else goal;
 }
 
 

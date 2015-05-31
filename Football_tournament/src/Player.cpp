@@ -2,6 +2,7 @@
 using namespace std;
 #include "Player.h"
 #include "Point.h"
+#include "Match.h"
 
 Player::Player(char* _name, int _id, Zone _zone, int _number, Point _position , int _speed,double _strenght, double _accuracity)
 {
@@ -65,34 +66,35 @@ bool Player::operator==(Player const& other)
 	return false;
 }
 
-void Player::run(int type)
+void Player::run(RunTypes type)
 {
 	//type is how to run depending on the situation 1 to the ball 2 with the team 3 chill
-	if(type==1)
+	//enum
+	if(type==TO_THE_BALL)
 	{
 		//missing logic ...
 		if((rand() % 1 + 0)==1)
-			position=ball;
+			position=;
 	}
-	if(type==2)
+	if(type==WITH_THE_TEAM)
 	{
 		;
 	}
-	if(type==3)
+	if(type==CHILL)
 	{
 		Point newPosition=position;
-		int distance1;
-		int distance2;
-		int direction1;
-		int direction2;
+		int distanceX;
+		int distanceY;
+		int directionX;
+		int directionY;
 		do
 		{
-			distance1=rand() % 5 + 1;
-			distance2=rand() % 5 + 1;
-			direction1=rand() % 1 + -1;
-			direction2=rand() % 1 + -1;
-			newPosition.x+=distance1*direction1;
-			newPosition.y+=distance2*direction2;
+			distanceX=rand() % 5 + 1;
+			distanceY=rand() % 5 + 1;
+			directionX=rand() % 1 + -1;
+			directionY=rand() % 1 + -1;
+			newPosition.x+=distanceX*directionX;
+			newPosition.y+=distanceY*directionY;
 		}
 		while(zone(newPosition));
 		position=newPosition;
@@ -101,6 +103,8 @@ void Player::run(int type)
 
 Point Player::whatToDoWithTheBall()
 {
+	specialMove();
+	/*
 	if(false)
 	{
 		;
@@ -113,6 +117,7 @@ Point Player::whatToDoWithTheBall()
 	{
 		passTheBall();
 	}
+	*/
 }
 
 void Player::passTheBall()

@@ -1,3 +1,4 @@
+#include "Match.h"
 
 Match::Match(Team _team1, Team _team2, Point ball=(60,45))
 {
@@ -35,12 +36,12 @@ void Match::movement(Player p) {
 	if (ball == p.getPosition()) {
 		ball = p.whatToDoWithTheBall();
 	} else if (ballStatus(p) == 1) {
-		p.run(2);
+		p.run(WITH_THE_TEAM, *this);
 	} else {
 		if (playerIsCloseToTheBall(p))
-			p.run(1);
+			p.run(TO_THE_BALL, *this);
 		else
-			p.run(3);
+			p.run(CHILL, *this);
 	}
 
 }

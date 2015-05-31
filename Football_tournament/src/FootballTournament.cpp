@@ -12,10 +12,10 @@
 #include "Event.h"
 #include "Team.h"
 #include "Player.h"
-#include "Attacker.cpp"
+#include "Attacker.h"
 #include "Midfielder.cpp"
-#include "Defender.cpp"
-#include "Goalkeeper.cpp"
+#include "Defender.h"
+#include "Goalkeeper.h"
 #include "Point.h"
 #include "Zone.h"
 

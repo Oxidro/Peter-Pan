@@ -14,7 +14,6 @@ public:
     int getStrenght() const {return strength;};
     int getWillToPass() const {return willingnessToPass;};
 
-    //��������� �������
     void run();
     void shoot();
 };

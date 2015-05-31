@@ -9,6 +9,8 @@
 #define EVENT_H_
 
 #include <iostream>
+#include <cstring>
+#include "Point.h"
 
 const int MAX=100;
 
@@ -23,13 +25,15 @@ public:
 
 class Event
 {
-	char ballPosition[MAX];
+	string ballPosition;
 	int goalsOfTeamA;
 	int goalsOfTeamB;
 	Violation violationsA;
 	Violation violationsB;
 
+    void locationBall(Point);
 public:
+    Event();
 	friend std::ostream& operator<<(std::ostream& os, Event event);
 };
 

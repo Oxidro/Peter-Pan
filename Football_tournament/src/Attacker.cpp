@@ -14,7 +14,7 @@ void Attacker::specialMove(Point ball)
 	else
 		gate(0, 45);
 	Point shootTo(gate.getX(), gate.getY()+rand() % 4 + (-4));
-	ball(shootTo.getX(), shootTo.getY() + rand() % getAccuracity() + (-getAccuracity));
+	ball(shootTo.getX(), shootTo.getY() + rand() % getAccuracity() + (-getAccuracity()));
 }
 
 

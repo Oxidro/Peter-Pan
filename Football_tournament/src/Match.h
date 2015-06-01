@@ -38,11 +38,5 @@ public:
 	void setZones();
 };
 
-typedef enum
-{
-	TO_THE_BALL=1,
-	WITH_THE_TEAM=2,
-	CHILL=3
-} RunTypes;
 
 #endif /* MATCH_H_ */

@@ -55,8 +55,8 @@ Point Player::whatToDoWithTheBall() {
 
 
 
-bool Player::iCanGetTheBall() {
-	Player* p = A.players;
+bool Player::iCanGetTheBall(Player* A, Player* B) {
+	Player* p = A;
 	int me = ball.distance(position) - speed;
 	int bestPlayer = me;
 
@@ -65,7 +65,7 @@ bool Player::iCanGetTheBall() {
 			if(ball.distance(p[i].getPosition()) - p[i].speed < bestPlayer)
 				bestPlayer = ball.distance(p[i].getPosition()) - p[i].speed;
 		}
-		p = B.players;
+		p = B;
 	}
 
 	if(me == bestPlayer)
@@ -89,13 +89,13 @@ bool Player::operator==(Player const& other)
 	return false;
 }
 
-void Player::run(int type)
+void Player::run(int type, Player* A, Player* B)
 {
 	//type is how to run depending on the situation 1 to the ball 2 with the team 3 chill
 	//enum
 	if(type==TO_THE_BALL)
 	{
-		if(iCanGetTheBall())
+		if(iCanGetTheBall(A,B))
 			position = ball;
 
 	}
@@ -144,15 +144,15 @@ Point Player::whatToDoWithTheBall()
 	*/
 }
 
-void Player::passTheBall()
+void Player::passTheBall(Team A)
 {
     int* nearbyTeammates=new int[11];
     int j=0;
     for(int i=0; i<11; i++)
     {
-    	Point teammatePosition=Team.getPlayers()[i].position;
+    	Point teammatePosition = A.players[i].getPosition();
         if(teammatePosition<=position+strenght && teammatePosition>=position-strenght)
-            nearbyTeammates[j++]=Team.getPlayers()[i];
+            nearbyTeammates[j++]=A.players[i];
     }
     ball=nearbyTeammates[rand() % j];
 }

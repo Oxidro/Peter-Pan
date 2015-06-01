@@ -55,16 +55,16 @@ public:
 
 	void setStrenght(int _strenght) {strenght=_strenght;};
 
-	bool iCanGetTheBall();
+	bool iCanGetTheBall(Player*, Player*);
 
 	void print();
 
 	bool operator==(Player const&);
 
-	void passTheBall();
+	void passTheBall(Player*);
 	void randomShot();
 
-	void run(int);
+	void run(int, Player*, Player*);
 	Point whatToDoWithTheBall();
 
 	virtual void specialMove();

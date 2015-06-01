@@ -9,10 +9,10 @@ void Match::setStartPosition()
 	Player* arr = A.players;
 	for (int j = 0; j < 2; j++) {
 		for (int i = 0; i < 11; i++) {
-			int x1 = arr[i].getZone().getBottomPoint().get_x();
-			int y1 = arr[i].getZone().getBottomPoint().get_y();
-			int x2 = arr[i].getZone().getTopPoint().get_x();
-			int y2 = arr[i].getZone().getTopPoint().get_y();
+			int x1 = arr[i].getZone().getBottomPoint().getX();
+			int y1 = arr[i].getZone().getBottomPoint().getY();
+			int x2 = arr[i].getZone().getTopPoint().getX();
+			int y2 = arr[i].getZone().getTopPoint().getY();
 			int randX = rand() % (x2 - x1) + x1;
 			int randY = rand() % (y2 - y1) + y1;
 			arr[i].setPosition(randX, randY);
@@ -74,12 +74,12 @@ void Match::move(Player p) {
 	if (ball == p.getPosition()) {
 		ball = p.whatToDoWithTheBall();
 	} else if (ballStatus(p) == 1) {
-		p.run(WITH_THE_TEAM);
+		p.run(WITH_THE_TEAM, A.players, B.players);
 	} else {
 		if (playerIsCloseToTheBall(p))
-			p.run(TO_THE_BALL);
+			p.run(TO_THE_BALL, A.players, B.players);
 		else
-			p.run(CHILL);
+			p.run(CHILL, A.players, B.players);
 	}
 
 }

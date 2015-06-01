@@ -1,14 +1,15 @@
 #ifndef PLAYER_H_INCLUDED
 #define PLAYER_H_INCLUDED
 
-bool Zone::operator()(Point const& point)
-{
-	if(point>=bottomRight && point<=topLeft)
-		return true;
-	return false;
-}
-
 #include "Point.h"
+#include "Zone.h"
+
+typedef enum
+{
+	TO_THE_BALL=1,
+	WITH_THE_TEAM=2,
+	CHILL=3
+} RunTypes;
 
 class Player{
 private:
@@ -27,16 +28,16 @@ public:
 	Player(char*, int, int, Zone, Point, int ,double , double);
 	Player(const Player&);
 	Player& operator=(const Player&);
-	~Player();
+	virtual ~Player();
 
-	void setZone(Zone _zone){zone=_zone;};
-	Zone getZone() {return Zone;};
+	void setZone(Zone _zone){zone=_zone;}
+	Zone getZone() {return zone;}
 
-	void setNumber(int _number){number=_number;};
-	int getNumber(){return number;};
+	void setNumber(int _number){number=_number;}
+	int getNumber(){return number;}
 
-	void setId(int _id){id=_id;};
-	int getId(){return id;};
+	void setId(int _id){id=_id;}
+	int getId(){return id;}
 
 	void setName(char*);
 	char* getName(){return name;};
@@ -58,7 +59,7 @@ public:
 	void passTheBall();
 	void randomShot();
 
-	void run(int);
+	void run(RunTypes);
 	Point whatToDoWithTheBall();
 
 	virtual void specialMove();

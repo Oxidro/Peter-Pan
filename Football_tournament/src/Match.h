@@ -8,18 +8,21 @@
 #ifndef MATCH_H_
 #define MATCH_H_
 
+#include "Event.h"
+
 class Match {
 private:
 	Team A;
 	Team B;
 	Point ball;
+	Event game;
 
 public:
-	Match(Team, Team, Point);
+	Match(Team, Team);
 
 	void setStartPosition(Team, Team);
 
-	void movement(Player);
+	void move(Player);
 
 	void playMatch();
 
@@ -27,14 +30,9 @@ public:
 
 	bool playerIsCloseToTheBall(Player);
 
-	Point getBall(){return ball;};
-};
+	Point getBall(){return ball;}
 
-typedef enum
-{
-	TO_THE_BALL=1,
-	WITH_THE_TEAM=2,
-	CHILL=3
-} RunTypes;
+	void setZones();
+};
 
 #endif /* MATCH_H_ */

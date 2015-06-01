@@ -15,11 +15,13 @@ Player::Player(char* _name, int _id, Zone _zone, int _number, Point _position , 
     strenght=_strenght;
     accuracity=_accuracity;
 }
+
 Player::Player(const Player& other)
 :name(NULL),id(other.id), zone(other.zone), number(other.number), position(other.position), speed(other.speed), strenght(other.strenght), accuracity(other.accuracity)
 {
     setName(other.name);
 }
+
 Player& Player::operator=(const Player& other)
 {
 	if(this!=&other)
@@ -72,6 +74,7 @@ void Player::run(RunTypes type)
 	//enum
 	if(type==TO_THE_BALL)
 	{
+
 		//missing logic ...
 		if((rand() % 1 + 0)==1)
 			position=;
@@ -135,6 +138,6 @@ void Player::passTheBall()
 
 void Player::randomShot()
 {
-	Point shootTo((position.get_x+rand() % strenght + 1) , (position.get_y()+rand() % accuracity+ -accuracity));
+	Point shootTo((position.get_x+rand() % getStrenght + 1) , (position.get_y()+rand() % getAccuracity+ -getAccuracity));
 	ball=shootTo;
 }

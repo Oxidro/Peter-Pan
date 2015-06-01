@@ -1,12 +1,21 @@
 #include "Match.h"
 
-Match::Match(Team _team1, Team _team2, Point ball=(60,45))
+Match::Match(Team _team1, Team _team2)
+:A(_team1),B(_team2),ball(60,45),game()
+{}
+
+void Match::setStartPosition(Team A_, Team B_)
 {
-	A=_team1;
-	B=_team1;
+
 }
 
-void Match::setStartPosition(Team A_, Team B_) {
+
+
+void Match::setZones()
+{
+
+
+	A.players[0].setZone(105, 25, 120, 65);
 
 }
 
@@ -32,16 +41,16 @@ int Match::ballStatus(Player p) {
 	return 0;
 }
 
-void Match::movement(Player p) {
+void Match::move(Player p) {
 	if (ball == p.getPosition()) {
 		ball = p.whatToDoWithTheBall();
 	} else if (ballStatus(p) == 1) {
-		p.run(WITH_THE_TEAM, *this);
+		p.run(WITH_THE_TEAM);
 	} else {
 		if (playerIsCloseToTheBall(p))
-			p.run(TO_THE_BALL, *this);
+			p.run(TO_THE_BALL);
 		else
-			p.run(CHILL, *this);
+			p.run(CHILL);
 	}
 
 }
@@ -49,8 +58,8 @@ void Match::movement(Player p) {
 void Match::playMatch() {
 	for(int min = 1; min <= 90; min++) {
 		for(int i=0; i<11; i++) {
-			movement(A.players[i]);
-			movement(B.players[i]);
+			move(A.players[i]);
+			move(B.players[i]);
 		}
 	}
 }

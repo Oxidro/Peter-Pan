@@ -24,19 +24,19 @@ void Event::locationBall(Point ball){
     //take the location of the ball in the match and translate it into words, so it is printable
     //ball=match.ball??? how to get the ball from the match
 
-    if(ball.get_y()==60 && ball.get_x()==45){
+    if(ball.get_x()==60 && ball.get_y()==45){
         ballPosition="in the center";
     }
-    if(ball.get_y()>=40 && ball.get_y()<=80){
+    if(ball.get_x()>=40 && ball.get_x()<=80){
         ballPosition="in midfield";
     }
-    if(ball.get_y()>=10 && ball.get_y()<40){
+    if(ball.get_x()>=10 && ball.get_x()<40){
         ballPosition="in the left half";
     }
-    if(ball.get_y()>80 && ball.get_y()>=110){
+    if(ball.get_x()>80 && ball.get_x()>=110){
         ballPosition="in the right half";
     }
-    if(ball.get_y()<10 && ball.get_y()>110){
+    if(ball.get_x()<10 && ball.get_x()>110){
         ballPosition="in penalty area";
     }
 }

@@ -12,8 +12,8 @@
 
 class Point {
 private:
-	int x;
-	int y;
+	int x; // dalgo;
+	int y; // kaso;
 
 public:
 	Point(int, int);

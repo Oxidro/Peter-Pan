@@ -21,12 +21,12 @@ private:
 	Point position;
 
 	int speed;
-	double strenght;
-	double accuracity;
+	int strenght;
+	int accuracity;
 
 public:
 
-	Player(char*, int, int, Zone, Point, int ,double , double);
+	Player(char*, int, Zone, int, Point, int ,int , int);
 	Player(const Player&);
 	Player& operator=(const Player&);
 	virtual ~Player();
@@ -43,15 +43,16 @@ public:
 
 	void setName(char*);
 	char* getName(){return name;};
-	double getAccuracity() const{return accuracity;};
+	int getAccuracity() const{return accuracity;};
 	void setAccuracity(double _accuracity){accuracity=_accuracity;};
 
 	Point getPosition() const {return position;};
 	void setPosition(int _x, int _y) {position.setX(_x); position.setY(_y);}
+	void setPosition(Point point) {position=point;}
 
 	int getSpeed() const {return speed;};
 	void setSpeed(int _speed) {speed=_speed;};
-	double getStrenght() const {return strenght;};
+	int getStrenght() const {return strenght;};
 	void setStrenght(double _strenght) {strenght=_strenght;};
 
 	void print();

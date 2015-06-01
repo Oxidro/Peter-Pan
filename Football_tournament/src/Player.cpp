@@ -4,7 +4,7 @@ using namespace std;
 #include "Point.h"
 #include "Match.h"
 
-Player::Player(char* _name, int _id, Zone _zone, int _number, Point _position , int _speed,double _strenght, double _accuracity)
+Player::Player(char* _name, int _id, Zone _zone, int _number, Point _position , int _speed, int _strenght, int _accuracity)
 {
     setName(_name);
     id=_id;
@@ -138,6 +138,6 @@ void Player::passTheBall()
 
 void Player::randomShot()
 {
-	Point shootTo((position.get_x+rand() % getStrenght + 1) , (position.get_y()+rand() % getAccuracity+ -getAccuracity));
+	Point shootTo((position.getX+rand() % getStrenght + 1) , (position.getY()+rand() % getAccuracity+ -getAccuracity));
 	ball=shootTo;
 }

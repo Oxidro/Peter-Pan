@@ -11,8 +11,9 @@ void Goalkeeper::specialMove()
 {
 	Zone defendingRadius(position+span, position-span);
 	if(defendingRadius(ball))
-		goalkeeper has the ball;
+		setPosition(ball);
 	else goal;
+	//waiting for EVENT
 }
 
 

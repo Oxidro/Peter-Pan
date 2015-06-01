@@ -12,18 +12,18 @@ Point::Point() {
 	y = 0;
 }
 
-int Point::get_x() {
+int Point::getX() {
 	return x;
 }
 
-int Point::get_y() {
+int Point::getY() {
 	return y;
 }
 
-void Point::set_x(int x_) {
+void Point::setX(int x_) {
 	x = x_;
 }
-void Point::set_y(int y_) {
+void Point::setY(int y_) {
 	y = y_;
 }
 
@@ -69,6 +69,12 @@ Point& Point::operator=(Point& p) {
 		x = p.x;
 		y = p.y;
 	}
+	return *this;
+}
+
+Point& Point::operator()(int x_, int y_) {
+	x = x_;
+	y = y_;
 
 	return *this;
 }

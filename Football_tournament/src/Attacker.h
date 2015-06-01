@@ -13,7 +13,7 @@
 class Attacker : Player
 {
 	virtual ~Attacker();
-	void specialMove();
+	void specialMove(Point ball);
 };
 
 #endif /* ATTACKER_H_ */

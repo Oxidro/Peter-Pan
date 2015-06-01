@@ -42,6 +42,8 @@ public:
 
 	Point& operator=(Point&);
 
+	Point& operator()(int, int);
+
 	bool operator==(Point&);
 
 	bool operator<(Point const&);

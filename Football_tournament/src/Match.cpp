@@ -4,10 +4,6 @@ Match::Match(Team _team1, Team _team2) :
 		A(_team1), B(_team2), ball(60, 45), game() {
 }
 
-void Match::setStartPosition(Team A_, Team B_) {
-
-}
-
 void Match::setStartPosition()
 {
 	Player* arr = A.players;

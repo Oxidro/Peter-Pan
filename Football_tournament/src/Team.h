@@ -9,6 +9,7 @@
 #define CLASSTEAM_H_
 
 #include "Player.h"
+
 class Team {
 private:
 	char* teamName;

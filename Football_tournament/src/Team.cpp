@@ -28,7 +28,8 @@ Team::Team(char* _name, Player* _players)
 	players=_players;
 }
 
-void Team::setTeamName(char* _teamName) {
+void Team::setTeamName(char* _teamName)
+{
 	int len = strlen(_teamName);
 	delete[] teamName;
 	teamName = new char[len + 1];
@@ -36,12 +37,13 @@ void Team::setTeamName(char* _teamName) {
 	teamName[len + 1] = '\0';
 }
 
-Team::Team(const Team& t) :
-		teamName(NULL) {
+Team::Team(const Team& t) :teamName(NULL)
+{
 	setTeamName(t.teamName);
 }
 
-Team& Team::operator=(const Team& t) {
+Team& Team::operator=(const Team& t)
+{
 	if (this == &t)
 		return *this;
 
@@ -49,7 +51,8 @@ Team& Team::operator=(const Team& t) {
 	return *this;
 }
 
-Team::~Team() {
+Team::~Team()
+{
 	delete teamName;
 }
 

@@ -1,8 +1,7 @@
 #include "Match.h"
 
 Match::Match(Team _team1, Team _team2) :
-		A(_team1), B(_team2) {
-}
+		A(_team1), B(_team2) {}
 
 void Match::setStartPosition()
 {
@@ -50,7 +49,8 @@ void Match::setZones()
 }
 
 
-void Match::playMatch() {
+void Match::playMatch()
+{
 	ball(59,45);
 	for (int min = 1; min <= 90; min++) {
 		for (int i = 0; i < 11; i++) {

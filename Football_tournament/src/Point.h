@@ -19,40 +19,28 @@ private:
 
 public:
 	Point(int, int);
-
 	Point();
-
 	int getX();
-
 	int getY();
-
 	void setX(int);
-
 	void setY(int);
 
-	void add(Point);
-
+    void add(Point);
 	void sub(Point);
-
 	void mul(int a);
-
 	void dump();
-
 	int distance(Point);
-
 	bool keeperCanCatchTheBall(Point, int);
 
 	Point& operator=(Point);
-
 	Point& operator()(int, int);
-
 	bool operator==(Point);
-
 	bool operator<(Point);
 	bool operator<=(Point);
 	bool operator>=(Point);
 	Point operator+(int);
 	Point operator-(int);
+
 	friend ostream& operator<<(ostream&, Point);
 };
 

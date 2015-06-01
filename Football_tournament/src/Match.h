@@ -22,19 +22,15 @@ private:
 public:
 	Match(Team, Team);
 
+    Point getBall(){return ball;}
+
 	void setStartPosition();
+	void setZones();
 
 	void move(Player);
-
 	void playMatch();
-
 	int ballStatus(Player);
-
 	bool playerIsCloseToTheBall(Player);
-
-	Point getBall(){return ball;}
-
-	void setZones();
 };
 
 

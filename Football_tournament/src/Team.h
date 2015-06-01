@@ -23,11 +23,8 @@ public:
 	~Team();
 
 	Player* getPlayers(){return players;};
-
 	char* getTeamName() {return teamName;}
-
 	Team* getTeam() {return this;}
-
 	void setTeamName(char* _teamName);
 
 	bool hasPlayer(Player p);

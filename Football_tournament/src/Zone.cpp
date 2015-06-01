@@ -6,14 +6,15 @@
  */
 #include"Zone.h"
 
-Zone Zone::operator()(int a, int b, int c, int d)
+Zone Zone::operator()(int x1, int y1, int x2, int y2)
 {
-	bottomLeft(a, b);
-	topRight(c, d);
+	bottomLeft(x1, y1);
+	topRight(x2, y2);
 	return *this;
 }
 
-Zone::Zone(Point p1, Point p2) {
+Zone::Zone(Point p1, Point p2)
+{
 	bottomLeft = p1;
 	topRight = p2;
 }

@@ -15,8 +15,8 @@ class Player{
 private:
 	char* name;
 	int id;
-	Zone zone;
 	int number;
+	Zone zone;
 	Point position;
 
 	int speed;
@@ -51,30 +51,24 @@ public:
 
 	int getSpeed() const {return speed;};
 	void setSpeed(int _speed) {speed=_speed;};
-	int getStrenght() const {return strenght;};
 
+	int getStrenght() const {return strenght;};
 	void setStrenght(int _strenght) {strenght=_strenght;};
 
+    void print();
 	bool iCanGetTheBall(Player*, Player*, Point);
+	bool iAmInTheTeam(Player*);
+	bool iAmCloseToTheBall(Point);
 
-	bool iAmInTheTeam(Player*) ;
-
-	void print();
+    void passTheBall(Player*, Point);
+    void runToTheBall(Player*, Player*, Point);
+	void randomShot(Point);
+	void chill();
+	bool myTeamHaveTheBall(Player*, Player*, Point);
 
 	bool operator==(Player const&);
 
-	void passTheBall(Player*, Point);
-	void randomShot(Point);
-
-	bool iAmCloseToTheBall(Point);
-
-	void chill();
-	void runToTheBall(Player*, Player*, Point);
-
-	bool myTeamHaveTheBall(Player*, Player*, Point);
-
 	//virtual void specialMove(Point, Player*);
-
 	virtual void act(Player*, Player*, Point);
 };
 

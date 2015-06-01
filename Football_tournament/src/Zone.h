@@ -18,10 +18,12 @@ class Zone
 public:
 	Zone():bottomLeft(0,0), topRight(0,0){};
 	Zone(Point, Point);
-	bool inTheZone(Point);
-	Zone operator()(int, int, int, int);
+
 	Point getBottomPoint(){return bottomLeft;}
 	Point getTopPoint(){return topRight;}
+
+	bool inTheZone(Point);
+	Zone operator()(int, int, int, int);
 };
 
 #endif /* ZONE_H_ */

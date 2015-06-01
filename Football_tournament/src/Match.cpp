@@ -14,7 +14,6 @@ void Match::setStartPosition(Team A_, Team B_)
 void Match::setZones()
 {
 
-
 	A.players[0].setZone(105, 25, 120, 65);
 
 }
@@ -55,7 +54,8 @@ void Match::move(Player p) {
 
 }
 
-void Match::playMatch() {
+void Match::playMatch()
+{
 	for(int min = 1; min <= 90; min++) {
 		for(int i=0; i<11; i++) {
 			move(A.players[i]);

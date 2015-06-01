@@ -31,6 +31,7 @@ public:
 	virtual ~Player();
 
 	void setZone(Zone _zone){zone=_zone;}
+	void setZone(int x1, int y1, int x2, int y2){zone(x1,y1,x2,y2);}
 	Zone getZone() {return zone;}
 
 	void setNumber(int _number){number=_number;}

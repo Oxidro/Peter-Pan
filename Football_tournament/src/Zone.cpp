@@ -5,7 +5,12 @@
  *      Author: ivko
  */
 
-Zone::Zone(){}
+Zone Zone::operator()(int a, int b, int c, int d)
+{
+	bottomLeft=(a, b);
+	topRight=(c, d);
+	return this;
+}
 
 bool Zone::inTheZone(Point const& point)
 {

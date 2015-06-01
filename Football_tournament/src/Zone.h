@@ -16,8 +16,9 @@ class Zone
 	Point topRight;
 
 public:
-	Zone(int, int, int, int);
+	Zone(Point, Point);
 	bool inTheZone(Point const&);
+	Zone operator()(int, int, int, int);
 };
 
 #endif /* ZONE_H_ */

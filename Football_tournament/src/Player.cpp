@@ -4,7 +4,7 @@ using namespace std;
 #include "Point.h"
 #include "Match.h"
 
-Player::Player(char* _name, int _id, Zone _zone, int _number, Point _position , int _speed,double _strenght, double _accuracity)
+Player::Player(char* _name, int _id, Zone _zone, int _number, Point _position , int _speed, int _strenght, int _accuracity)
 {
     setName(_name);
     id=_id;
@@ -53,6 +53,27 @@ Point Player::whatToDoWithTheBall() {
 	return *this;
 }
 
+
+
+bool Player::iCanGetTheBall() {
+	Player* p = A.players;
+	int me = ball.distance(position) - speed;
+	int bestPlayer = me;
+
+	for (int j = 0; j < 2; j++) {
+		for (int i = 0; i < 11; i++) {
+			if(ball.distance(p[i].getPosition()) - p[i].speed < bestPlayer)
+				bestPlayer = ball.distance(p[i].getPosition()) - p[i].speed;
+		}
+		p = B.players;
+	}
+
+	if(me == bestPlayer)
+		return true;
+
+	return false;
+}
+
 void Player::print(){
 	cout<<"Player: "<< getName;
 	cout<<"\nNumber: "<<getNumber;
@@ -68,16 +89,15 @@ bool Player::operator==(Player const& other)
 	return false;
 }
 
-void Player::run(RunTypes type)
+void Player::run(int type)
 {
 	//type is how to run depending on the situation 1 to the ball 2 with the team 3 chill
 	//enum
 	if(type==TO_THE_BALL)
 	{
+		if(iCanGetTheBall())
+			position = ball;
 
-		//missing logic ...
-		if((rand() % 1 + 0)==1)
-			position=;
 	}
 	if(type==WITH_THE_TEAM)
 	{
@@ -100,6 +120,7 @@ void Player::run(RunTypes type)
 			newPosition.y+=distanceY*directionY;
 		}
 		while(zone(newPosition));
+
 		position=newPosition;
 	}
 }

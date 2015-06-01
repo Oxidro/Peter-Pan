@@ -5,12 +5,11 @@
 #include "Point.h"
 #include "Zone.h"
 
-typedef enum
-{
-	TO_THE_BALL=1,
-	WITH_THE_TEAM=2,
-	CHILL=3
-} RunTypes;
+
+const int TO_THE_BALL=1;
+const int WITH_THE_TEAM=2;
+const int CHILL=3;
+
 
 class Player{
 private:
@@ -21,12 +20,12 @@ private:
 	Point position;
 
 	int speed;
-	double strenght;
-	double accuracity;
+	int strenght;
+	int accuracity;
 
 public:
 
-	Player(char*, int, int, Zone, Point, int ,double , double);
+	Player(char*, int, int, Zone, Point, int ,int , int);
 	Player(const Player&);
 	Player& operator=(const Player&);
 	virtual ~Player();
@@ -43,16 +42,18 @@ public:
 
 	void setName(char*);
 	char* getName(){return name;};
-	double getAccuracity() const{return accuracity;};
-	void setAccuracity(double _accuracity){accuracity=_accuracity;};
+	int getAccuracity() const{return accuracity;};
+	void setAccuracity(int _accuracity){accuracity=_accuracity;};
 
 	Point getPosition() const {return position;};
 	void setPosition(int _x, int _y) {position.setX(_x); position.setY(_y);}
 
 	int getSpeed() const {return speed;};
 	void setSpeed(int _speed) {speed=_speed;};
-	double getStrenght() const {return strenght;};
-	void setStrenght(double _strenght) {strenght=_strenght;};
+	int getStrenght() const {return strenght;};
+	void setStrenght(int _strenght) {strenght=_strenght;};
+
+	bool iCanGetTheBall();
 
 	void print();
 
@@ -61,7 +62,7 @@ public:
 	void passTheBall();
 	void randomShot();
 
-	void run(RunTypes);
+	void run(int);
 	Point whatToDoWithTheBall();
 
 	virtual void specialMove();

@@ -20,13 +20,13 @@ public:
 
 	Point();
 
-	int get_x();
+	int getX();
 
-	int get_y();
+	int getY();
 
-	void set_x(int);
+	void setX(int);
 
-	void set_y(int);
+	void setY(int);
 
 	void add(Point);
 

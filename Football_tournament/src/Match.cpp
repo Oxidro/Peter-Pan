@@ -8,7 +8,26 @@ void Match::setStartPosition(Team A_, Team B_) {
 
 }
 
-void Match::setZones() {
+void Match::setStartPosition()
+{
+	Player* arr = A.players;
+	for (int j = 0; j < 2; j++) {
+		for (int i = 0; i < 11; i++) {
+			int x1 = arr[i].getZone().getBottomPoint().get_x();
+			int y1 = arr[i].getZone().getBottomPoint().get_y();
+			int x2 = arr[i].getZone().getTopPoint().get_x();
+			int y2 = arr[i].getZone().getTopPoint().get_y();
+			int randX = rand() % (x2 - x1) + x1;
+			int randY = rand() % (y2 - y1) + y1;
+			arr[i].setPosition(randX, randY);
+		}
+		arr = B.players;
+	}
+
+}
+
+void Match::setZones()
+{
 	A.players[0].setZone(105, 25, 120, 65);
 	A.players[1].setZone(105, 45, 120, 90);
 	A.players[2].setZone(105, 0, 120, 45);

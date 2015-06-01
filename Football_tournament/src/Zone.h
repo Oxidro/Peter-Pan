@@ -19,6 +19,8 @@ public:
 	Zone(Point, Point);
 	bool inTheZone(Point const&);
 	Zone operator()(int, int, int, int);
+	Point getBottomPoint(){return bottomLeft;}
+	Point getTopPoint(){return topRight;}
 };
 
 #endif /* ZONE_H_ */

@@ -1,6 +1,7 @@
 #ifndef PLAYER_H_INCLUDED
 #define PLAYER_H_INCLUDED
 
+#include <cstdlib>
 #include "Point.h"
 #include "Zone.h"
 
@@ -46,7 +47,7 @@ public:
 	void setAccuracity(double _accuracity){accuracity=_accuracity;};
 
 	Point getPosition() const {return position;};
-	void setPosition(Point _position) {position=_position;};
+	void setPosition(int _x, int _y) {position.setX(_x); position.setY(_y);}
 
 	int getSpeed() const {return speed;};
 	void setSpeed(int _speed) {speed=_speed;};

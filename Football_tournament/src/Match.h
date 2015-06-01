@@ -8,6 +8,7 @@
 #ifndef MATCH_H_
 #define MATCH_H_
 
+#include <>
 #include "Event.h"
 
 class Match {
@@ -20,7 +21,7 @@ private:
 public:
 	Match(Team, Team);
 
-	void setStartPosition(Team, Team);
+	void setStartPosition();
 
 	void move(Player);
 

@@ -40,7 +40,7 @@ int main()
     Team team1(name1, players1);
     Team team2(name2, players2);
     Match match(team1, team2);
-    match.setStartPosition(team1,team2);
+    match.setStartPosition();
     Event game;
     cout<<"Let the match begin!\n";
     match.playMatch();

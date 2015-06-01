@@ -7,13 +7,31 @@
 
 #include "Goalkeeper.h"
 
-void Goalkeeper::specialMove()
+void Goalkeeper::specialMove(Player* A, Player* B, Point ball)
 {
-	Zone defendingRadius(position+span, position-span);
-	if(defendingRadius(ball))
-		setPosition(ball);
-	else goal;
-	//waiting for EVENT
+	Point gate;
+	if(getPosition().getX()>60)
+		gate(120, 45);
+	else
+		gate(0, 45);
+
+	if (ball == getPosition()) {
+		Player* myTeam = (iAmInTheTeam(A))? A : B;
+		passTheBall(myTeam, ball);
+	}else if(ball.getX() == gate.getX() &&
+			ball.getY() < gate.getY()+4 &&
+			ball.getY() > gate.getY()-4){
+		Zone defendingRadius(getPosition()+span, getPosition()-span);
+		if(defendingRadius.inTheZone(ball))
+			setPosition(ball);
+		else ;//goal;
+
+	}else{
+		if (iAmCloseToTheBall(ball))
+			runToTheBall(A,B, ball);
+		else
+			chill();
+	}
 }
 
 

@@ -6,15 +6,29 @@
  */
 #include "Attacker.h"
 
-void Attacker::specialMove(Point ball)
+void Attacker::act(Player* A, Player* B, Point ball)
 {
 	Point gate;
 	if(getPosition().getX()>60)
 		gate(120, 45);
 	else
 		gate(0, 45);
-	Point shootTo(gate.getX(), gate.getY()+rand() % 4 + (-4));
-	ball(shootTo.getX(), shootTo.getY() + rand() % getAccuracity() + (-getAccuracity()));
+
+	if (ball == getPosition()) {
+		if(getPosition().distance(gate)>=getStrenght()) {
+			Point shootTo(gate.getX(), gate.getY()+rand() % 4 + (-4));
+			ball(shootTo.getX(), shootTo.getY() + rand() % getAccuracity() + (-getAccuracity()));
+		}else
+			randomShot(ball);
+
+	}else{
+		if (iAmCloseToTheBall(ball))
+			runToTheBall(A,B, ball);
+		else
+			chill();
+	}
+
+
 }
 
 

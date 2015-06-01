@@ -57,14 +57,14 @@ void Point::dump() {
 	cout << "(" << x << ", " << y << ")" << endl;
 }
 
-bool Point::operator==(Point& p){
+bool Point::operator==(Point p){
 	if(x==p.x && y==p.y)
 		return true;
 
 	return false;
 }
 
-Point& Point::operator=(Point& p) {
+Point& Point::operator=(Point p) {
 	if(this != &p) {
 		x = p.x;
 		y = p.y;
@@ -89,21 +89,21 @@ Point sub(Point p1, Point p2) {
 	return p1;
 }
 
-bool Point::operator<(Point const& point)
+bool Point::operator<(Point point)
 {
 	if(x<point.x && y<point.y)
 		return true;
 	return false;
 }
 
-bool Point::operator<=(Point const& point)
+bool Point::operator<=(Point point)
 {
 	if(operator<(point) || *this==point)
 		return true;
 	return false;
 }
 
-bool Point::operator>=(Point const& point)
+bool Point::operator>=(Point  point)
 {
 	if(point<(*this) || *this==point)
 		return true;
@@ -115,7 +115,7 @@ Point Point::operator+(int n)
 	Point p=*this;
 	p.x+=n;
 	p.y+=n;
-	return *p;
+	return p;
 }
 
 Point Point::operator-(int n)
@@ -123,5 +123,9 @@ Point Point::operator-(int n)
 	Point p=*this;
 	p.x-=n;
 	p.y-=n;
-	return *p;
+	return p;
+}
+
+ostream& operator<<(ostream& os, Point p) {
+	return os << "(" << p.x << "," << p.y << ")";
 }

@@ -13,15 +13,16 @@
 class Team {
 private:
 	char* teamName;
-	Player players[18];
+	Player* players;
 
 public:
 	Team();
+	Team(char*, Player*);
 	Team(const Team&);
 	Team &operator=(const Team&);
 	~Team();
 
-	Team(char*, Player[]);
+	Player* getPlayers(){return players;};
 
 	char* getTeamName() {return teamName;}
 

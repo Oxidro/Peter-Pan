@@ -5,8 +5,8 @@
 
 class Midfielder:public Player{
 public:
-	void specialMove();
-	virtual ~Midfielder();
+	void act(Player*, Player*, Point);
+	~Midfielder();
 };
 
 #endif // MIDFIELDER_H_INCLUDED

@@ -14,10 +14,10 @@ class Defender : public Player
 {
 private:
 	int aggression;
-	double superPower;
+	int superPower;
 public:
 	virtual ~Defender();
-	void specialMove();
+	void act(Player*, Player*, Point);
 };
 
 #endif /* DEFENDER_H_ */

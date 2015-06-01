@@ -16,7 +16,7 @@ private:
 	int span; //arms spread + small jump to a side
 public:
 	virtual ~Goalkeeper();
-	void specialMove();
+	void specialMove(Player*, Player*, Point);
 };
 
 #endif /* GOALKEEPER_H_ */

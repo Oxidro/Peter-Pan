@@ -22,13 +22,13 @@ Team::Team()
 	teamName = new char[51];
 }
 
-Team::Team(char* _name, Player _players[])
+Team::Team(char* _name, Player* _players)
 {
 	teamName=_name;
 	players=_players;
 }
 
-void Team::setteamName(char* _teamName) {
+void Team::setTeamName(char* _teamName) {
 	int len = strlen(_teamName);
 	delete[] teamName;
 	teamName = new char[len + 1];
@@ -38,14 +38,14 @@ void Team::setteamName(char* _teamName) {
 
 Team::Team(const Team& t) :
 		teamName(NULL) {
-	setteamName(t.teamName);
+	setTeamName(t.teamName);
 }
 
 Team& Team::operator=(const Team& t) {
 	if (this == &t)
 		return *this;
 
-	setteamName(t.teamName);
+	setTeamName(t.teamName);
 	return *this;
 }
 
@@ -53,12 +53,6 @@ Team::~Team() {
 	delete teamName;
 }
 
-bool Team::hasPlayer(Player p) {
-	for(int i=0; i<18; i++)
-		if(p == players[i])
-			return true;
-	return false;
-}
 
 /*
  void Player::print()

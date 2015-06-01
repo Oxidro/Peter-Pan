@@ -24,7 +24,7 @@ private:
 	int accuracity;
 
 public:
-
+	Player():name(NULL),id(0),number(0),speed(0),strenght(0),accuracity(0){};
 	Player(char*, int, Zone, int, Point, int ,int , int);
 	Player(const Player&);
 	Player& operator=(const Player&);
@@ -55,19 +55,27 @@ public:
 
 	void setStrenght(int _strenght) {strenght=_strenght;};
 
-	bool iCanGetTheBall(Player*, Player*);
+	bool iCanGetTheBall(Player*, Player*, Point);
+
+	bool iAmInTheTeam(Player*) ;
 
 	void print();
 
 	bool operator==(Player const&);
 
-	void passTheBall(Player*);
-	void randomShot();
+	void passTheBall(Player*, Point);
+	void randomShot(Point);
 
-	void run(int, Player*, Player*);
-	Point whatToDoWithTheBall(Point);
+	bool iAmCloseToTheBall(Point);
 
-	virtual void specialMove(Point);
+	void chill();
+	void runToTheBall(Player*, Player*, Point);
+
+	bool myTeamHaveTheBall(Player*, Player*, Point);
+
+	//virtual void specialMove(Point, Player*);
+
+	virtual void act(Player*, Player*, Point);
 };
 
 #endif // PLAYER_H_INCLUDED

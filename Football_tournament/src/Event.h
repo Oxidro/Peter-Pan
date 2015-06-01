@@ -7,6 +7,7 @@
 
 #ifndef EVENT_H_
 #define EVENT_H_
+/*
 
 #include <iostream>
 #include <cstring>
@@ -25,7 +26,6 @@ public:
 
 class Event
 {
-	string ballPosition;
 	int goalsOfTeamA;
 	int goalsOfTeamB;
 	Violation violationsA;
@@ -35,8 +35,10 @@ class Event
 public:
     Event();
 	friend std::ostream& operator<<(std::ostream& os, Event event);
+	int getGoalsOfTeamA() {return goalsOfTeamA;}
+	int getGoalsOfTeamB() {return goalsOfTeamB;}
 };
 
-
+*/
 
 #endif /* EVENT_H_ */

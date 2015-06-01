@@ -9,6 +9,8 @@
 #define POINT_H_
 
 #include "math.h"
+#include <iostream>
+using namespace std;
 
 class Point {
 private:
@@ -40,17 +42,18 @@ public:
 
 	bool keeperCanCatchTheBall(Point, int);
 
-	Point& operator=(Point&);
+	Point& operator=(Point);
 
 	Point& operator()(int, int);
 
-	bool operator==(Point&);
+	bool operator==(Point);
 
-	bool operator<(Point const&);
-	bool operator<=(Point const&);
-	bool operator>=(Point const&);
+	bool operator<(Point);
+	bool operator<=(Point);
+	bool operator>=(Point);
 	Point operator+(int);
 	Point operator-(int);
+	friend ostream& operator<<(ostream&, Point);
 };
 
 #endif /* POINT_H_ */

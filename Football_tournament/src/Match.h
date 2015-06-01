@@ -16,8 +16,8 @@ class Match {
 private:
 	Team A;
 	Team B;
-	Event game;
 	Point ball;
+	//Event game;
 
 public:
 	Match(Team, Team);

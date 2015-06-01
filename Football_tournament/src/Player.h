@@ -65,9 +65,9 @@ public:
 	void randomShot();
 
 	void run(int, Player*, Player*);
-	Point whatToDoWithTheBall();
+	Point whatToDoWithTheBall(Point);
 
-	virtual void specialMove();
+	virtual void specialMove(Point);
 };
 
 #endif // PLAYER_H_INCLUDED

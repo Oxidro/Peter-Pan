@@ -49,11 +49,6 @@ void Player::setName(char* _name){
     strcpy(name,_name);
 }
 
-Point Player::whatToDoWithTheBall() {
-	return *this;
-}
-
-
 
 bool Player::iCanGetTheBall(Player* A, Player* B) {
 	Player* p = A;
@@ -97,6 +92,8 @@ void Player::run(int type, Player* A, Player* B)
 	{
 		if(iCanGetTheBall(A,B))
 			position = ball;
+		else
+			run(CHILL, A, B);
 
 	}
 	if(type==WITH_THE_TEAM)
@@ -125,9 +122,9 @@ void Player::run(int type, Player* A, Player* B)
 	}
 }
 
-Point Player::whatToDoWithTheBall()
+Point Player::whatToDoWithTheBall(Point ball)
 {
-	specialMove();
+	specialMove(ball);
 	/*
 	if(false)
 	{
@@ -144,15 +141,15 @@ Point Player::whatToDoWithTheBall()
 	*/
 }
 
-void Player::passTheBall(Team A)
+void Player::passTheBall(Player* players)
 {
     int* nearbyTeammates=new int[11];
     int j=0;
     for(int i=0; i<11; i++)
     {
-    	Point teammatePosition = A.players[i].getPosition();
+    	Point teammatePosition = players[i].getPosition();
         if(teammatePosition<=position+strenght && teammatePosition>=position-strenght)
-            nearbyTeammates[j++]=A.players[i];
+            nearbyTeammates[j++]=players[i];
     }
     ball=nearbyTeammates[rand() % j];
 }

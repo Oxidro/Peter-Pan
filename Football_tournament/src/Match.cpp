@@ -72,7 +72,7 @@ int Match::ballStatus(Player p) {
 
 void Match::move(Player p) {
 	if (ball == p.getPosition()) {
-		ball = p.whatToDoWithTheBall();
+		ball = p.whatToDoWithTheBall(ball);
 	} else if (ballStatus(p) == 1) {
 		p.run(WITH_THE_TEAM, A.players, B.players);
 	} else {
@@ -85,6 +85,7 @@ void Match::move(Player p) {
 }
 
 void Match::playMatch() {
+	ball(59,45);
 	for (int min = 1; min <= 90; min++) {
 		for (int i = 0; i < 11; i++) {
 			move(A.players[i]);

@@ -12,13 +12,12 @@
 #include "Team.h"
 #include "Event.h"
 
-Point ball;
-
 class Match {
 private:
 	Team A;
 	Team B;
 	Event game;
+	Point ball;
 
 public:
 	Match(Team, Team);

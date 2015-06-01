@@ -50,7 +50,7 @@ void Match::setZones()
 }
 
 bool Match::playerIsCloseToTheBall(Player p) {
-	if (p.zone(ball))
+	if (p.getZone().inTheZone(ball))
 		return true;
 	return false;
 }

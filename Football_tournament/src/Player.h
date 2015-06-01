@@ -5,12 +5,11 @@
 #include "Point.h"
 #include "Zone.h"
 
-typedef enum
-{
-	TO_THE_BALL=1,
-	WITH_THE_TEAM=2,
-	CHILL=3
-} RunTypes;
+
+const int TO_THE_BALL=1;
+const int WITH_THE_TEAM=2;
+const int CHILL=3;
+
 
 class Player{
 private:
@@ -44,7 +43,7 @@ public:
 	void setName(char*);
 	char* getName(){return name;};
 	int getAccuracity() const{return accuracity;};
-	void setAccuracity(double _accuracity){accuracity=_accuracity;};
+	void setAccuracity(int _accuracity){accuracity=_accuracity;};
 
 	Point getPosition() const {return position;};
 	void setPosition(int _x, int _y) {position.setX(_x); position.setY(_y);}
@@ -53,7 +52,10 @@ public:
 	int getSpeed() const {return speed;};
 	void setSpeed(int _speed) {speed=_speed;};
 	int getStrenght() const {return strenght;};
-	void setStrenght(double _strenght) {strenght=_strenght;};
+
+	void setStrenght(int _strenght) {strenght=_strenght;};
+
+	bool iCanGetTheBall();
 
 	void print();
 
@@ -62,7 +64,7 @@ public:
 	void passTheBall();
 	void randomShot();
 
-	void run(RunTypes);
+	void run(int);
 	Point whatToDoWithTheBall();
 
 	virtual void specialMove();

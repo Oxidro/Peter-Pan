@@ -10,11 +10,12 @@
 
 #include "Event.h"
 
+Point ball;
+
 class Match {
 private:
 	Team A;
 	Team B;
-	Point ball;
 	Event game;
 
 public:

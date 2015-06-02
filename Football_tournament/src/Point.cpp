@@ -1,11 +1,12 @@
-#include<iostream>
+#include <iostream>
+#include <cmath>
 #include "Point.h"
 using namespace std;
 
-Point::Point(int x_, int y_)
+Point::Point(int _x, int _y)
 {
-	x = x_;
-	y = y_;
+	x = _x;
+	y = _y;
 }
 
 Point::Point()
@@ -31,23 +32,6 @@ void Point::setX(int _x)
 void Point::setY(int _y)
 {
 	y = _y;
-}
-
-void Point::add(Point p)
-{
-	x += p.x;
-	y += p.y;
-}
-void Point::sub(Point p)
-{
-	x -= p.x;
-	y -= p.y;
-}
-
-void Point::mul(int a)
-{
-	x *= a;
-	y *= a;
 }
 
 int Point::distance(Point p)
@@ -92,18 +76,6 @@ Point& Point::operator()(int _x, int _y)
 	y = _y;
 
 	return *this;
-}
-
-Point sum(Point p1, Point p2)
-{
-	p1.add(p2);
-	return p1;
-}
-
-Point sub(Point p1, Point p2)
-{
-	p1.sub(p2);
-	return p1;
 }
 
 bool Point::operator<(Point point)

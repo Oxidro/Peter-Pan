@@ -11,11 +11,11 @@ using namespace std;
 #include <cstring>
 
 #include "Match.h"
-//#include "Event.h"
+#include "Event.h"
 #include "Team.h"
 #include "Player.h"
 #include "Attacker.h"
-#include "Midfielder.cpp"
+#include "Midfielder.h"
 #include "Defender.h"
 #include "Goalkeeper.h"
 #include "Point.h"

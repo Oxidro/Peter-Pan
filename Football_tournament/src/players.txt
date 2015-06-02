@@ -1,41 +1,2 @@
-(name,speed,strength)
-(Ramon Villaverde,48,31.4)
-(Eulogio Martinez,42,12.8)
-(Enric Gensana,64,28.12)
-(Marti Verges,65,44.2)
-(Ferran Olivella,37,49,1)
-(Evaristo de Macedo,66,22.8)
-(Sandor Kocsis,35,31.0)
-(Jose Manuel Pesudo,38,55.4)
-(Pedro Zaballa,22,60.5)
-(Julio Cesar Benitez,37,23.7)
-(Jesus Maria Pereda,40,59.0)
-(Salvador Sadurni,22,48.33)
-(Jose Antonio Zaldua,55,22.45)
-(Cayetano Re,45,28.345)
-(Josep Maria Fuste,56,58.456)
-(Eladio Silvestre,19,37.888)
-(Joaquim Rife,34,70.305)
-(Antoni Torres,58,67,66)
-(Gallego,49,33.33)
-(Carles Rexach,56,56.7)
-(Miguel Reina,46,28.99)
-(Pedro Maria Zabalza,61,65.66)
-(Juan Carlos Perez,39,57.43)
-(Marcial Pina,67,20.67)
-(Juan Manuel Asensi,88,69.78) 
-(Quique Costas,62,57.88) 
-(Antonio de la Cruz,16,31.5689)
-(Hugo Sotil,17,17.08)
-(Johan Cruyff,78,67.45)
-(Migueli,28,19.77)
-(Johan Neeskens,13,30.99)
-(Pedro Maria Artola,33,58.345)
-(Jose Vicente Sanchez,19,37.2442)
-(Jose Antonio Ramos,88,89.23523)
-(Antonio Olmo, 15,29.05053)
-(Rafael Zuviria,18,19.34)
-(Esteban Vigo,20,20.56)
-(Francisco Jose Carrasco,23,15.67)
-(Hans Krankl, 22,23.56)
-(Allan Simonsen 26,56.3452)
+//id, type, name,speed(3-7), strength(25-40), accuracity(0-5), special{(if G(1-2) if D(>=4)}
+1|G|Ramon Villaverde|4|30|3|12|G|Eulogio Martinez|5|25|0|13|D|Enric Gensana|7|28|4|44|D|Marti Verges|3|44|2|45|D|Ferran Olivella|4|49|1|46|D|Evaristo de Macedo|7|22|5|47|D|Sandor Kocsis|5|31|0|48|D|Jose Manuel Pesudo|6|40|4|49|D|Pedro Zaballa|7|40|5|410|D|Julio Cesar Benitez|3|25|5|411|D|Jesus Maria Pereda|5|40|0|412|D|Salvador Sadurni|7|48|3|413|M|Jose Antonio Zaldua|3|35|514|M|Cayetano Re|6|28|415|M|Josep Maria Fuste|6|40|416|M|Eladio Silvestre|3|37|017|M|Joaquim Rife|4|39|018|M|Antoni Torres|5|27|519|M|Gallego|4|33|320|M|Carles Rexach|6|36|121|M|Miguel Reina|6|28|222|M|Pedro Maria Zabalza|6|35|323|A|Juan Carlos Perez|3|37|324|A|Marcial Pina|6|25|025|A|Juan Manuel Asensi|7|40|2 26|A|Quique Costas|6|34|327|A|Antonio de la Cruz|6|31|528|A|Hugo Sotil|7|25|029|A|Johan Cruyff|7|30|230|G|Migueli|3|29|3|131|G|Johan Neeskens|3|30|4|132|D|Pedro Maria Artola|3|40|2|433|D|Jose Vicente Sanchez|3|37|4|434|M|Jose Antonio Ramos|7|31|335|M|Antonio Olmo|5|29|336|A|Rafael Zuviria|4|39|437|A|Esteban Vigo|3|30|538|A|Francisco Jose Carrasco|3|35|539|A|Hans Krankl|3|33|340|D|Allan Simonsen|6|26|2|4

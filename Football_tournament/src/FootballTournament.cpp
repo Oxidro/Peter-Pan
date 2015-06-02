@@ -25,6 +25,10 @@ using namespace std;
 
 int main()
 {
+
+
+
+	/*
     cout<<"Welcome to the football match simulaor!\n";
     cout<<"Please enter the names of the teams in the match.\nTeam one:";
     char* name1, *name2;

@@ -25,7 +25,7 @@ private:
 
 public:
 	Player():name(NULL),id(0),number(0),speed(0),strenght(0),accuracity(0){};
-	Player(char*, int, Zone, int, Point, int ,int , int);
+	Player(char*, int, int, int);
 	Player(const Player&);
 	Player& operator=(const Player&);
 	virtual ~Player();

@@ -5,20 +5,16 @@ using namespace std;
 #include "Match.h"
 #include "string.h"
 
-Player::Player(char* _name, int _id, Zone _zone, int _number, Point _position, int _speed, int _strenght, int _accuracity)
+Player::Player(char* _name, int _speed, int _strenght, int _accuracity)
 {
     setName(_name);
-    id=_id;
-    zone=_zone;
-    number=_number;
-    position=_position;
     speed=_speed;
     strenght=_strenght;
     accuracity=_accuracity;
 }
 
 Player::Player(const Player& other)
-:name(NULL),id(other.id), zone(other.zone), number(other.number), position(other.position), speed(other.speed), strenght(other.strenght), accuracity(other.accuracity)
+:name(NULL), zone(other.zone), number(other.number), position(other.position), speed(other.speed), strenght(other.strenght), accuracity(other.accuracity)
 {
     setName(other.name);
 }
@@ -29,7 +25,7 @@ Player& Player::operator=(const Player& other)
 		return *this;
 	delete[] name;
 	setName(other.name);
-	id=other.id;
+	//id=other.id;
 	zone=other.zone;
     number=other.number;
     position=other.position;

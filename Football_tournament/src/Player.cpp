@@ -70,6 +70,10 @@ bool Player::iCanGetTheBall(Player* A, Player* B, Point ball) {
 	return false;
 }
 
+void Player::act(Player* A, Player* B, Point ball) {
+	chill();
+}
+
 void Player::print(){
 	cout<<"Player: "<< getName();
 	cout<<"\nNumber: "<<getNumber();

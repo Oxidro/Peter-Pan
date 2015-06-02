@@ -15,7 +15,7 @@ using namespace std;
 #include "Team.h"
 #include "Player.h"
 #include "Attacker.h"
-#include "Midfielder.cpp"
+#include "Midfielder.h"
 #include "Defender.h"
 #include "Goalkeeper.h"
 #include "Point.h"

@@ -4,6 +4,7 @@ using namespace std;
 #include "Point.h"
 #include "Match.h"
 #include "string.h"
+#include "global.h"
 
 Player::Player(char* _name, int _id, Zone _zone, int _number, Point _position, int _speed, int _strenght, int _accuracity)
 {

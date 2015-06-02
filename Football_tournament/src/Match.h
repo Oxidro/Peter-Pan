@@ -12,6 +12,7 @@
 #include "Team.h"
 #include "Event.h"
 
+
 class Match {
 private:
 	Team A;
@@ -20,6 +21,7 @@ private:
 	//Event game;
 
 public:
+	Match();
 	Match(Team, Team);
 
     Point getBall(){return ball;}

@@ -5,7 +5,6 @@
 #include "Point.h"
 #include "Zone.h"
 
-
 const int TO_THE_BALL=1;
 const int WITH_THE_TEAM=2;
 const int CHILL=3;

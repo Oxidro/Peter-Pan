@@ -6,7 +6,6 @@
 class Midfielder:public Player{
 public:
 	void act(Player*, Player*, Point);
-	virtual ~Midfielder();
 };
 
 #endif // MIDFIELDER_H_INCLUDED

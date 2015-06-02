@@ -7,7 +7,7 @@
 
 #include "Event.h"
 #include "Match.h"
-/*
+
 Event::Event()
 : goalsOfTeamA(0), goalsOfTeamB(0), violationsA(), violationsB() {}
 
@@ -26,4 +26,4 @@ void Event::locationBall(Point ball){
 
     ;
 }
-*/
+

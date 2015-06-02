@@ -31,24 +31,25 @@ int main()
 	/*
     cout<<"Welcome to the football match simulaor!\n";
     cout<<"Please enter the names of the teams in the match.\nTeam one:";
-    char* name1, *name2;
-    cin.getline(name1,1000);
-    //getline(cin,name1);
+    char name1[1000], name2[1000];
+    cin.getline(name1, 1001, '\n');
     cout<<"Team two:";
-    cin.getline(name2,1000);
-    //getline(cin,name2);
+    cin.getline(name2, 1001, '\n');
 
 
     //reading the players from file for easier input
     //...
     Player players1[18];
 	Player players2[18];
-    Team team1(name1, players1);
-    Team team2(name2, players2);
-    Match match(team1, team2);
-    match.setStartPosition();
+
+    //Team team1(name1, players1);
+    //Team team2(name2, players2);
+   // Match match(team1, team2);
+
+    //match.setStartPosition();
+
     /*
-    Event game;
+    Event game;s
     cout<<"Let the match begin!\n";
     match.playMatch();
     cout<<game<<endl;
@@ -59,7 +60,8 @@ int main()
     } else if(game.getGoalsOfTeamA()<game.getGoalsOfTeamB()){
             cout<<"The winner is "<<team2.getTeamName()<<"!"<<endl;
         } else cout<<team1.getTeamName()<<" and "<<team2.getTeamName()<<" ended in a draw!"<<endl;
-    */
-
+	*/
 	return 0;
 }
+
+

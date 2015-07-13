@@ -75,6 +75,7 @@ void Event::print()
 	{
 		cout<<violationsB[i]<<" ";
 	}
+	cout<<endl;
 }
 
 void Event::Update(int x, int y)

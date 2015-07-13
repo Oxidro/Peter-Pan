@@ -17,7 +17,7 @@ private:
 public:
 	Defender(Player const&, int);
 	virtual ~Defender() {};
-	void act(Player*, Player*, Point);
+	void act(Player*, Player*, Point&);
 };
 
 #endif /* DEFENDER_H_ */

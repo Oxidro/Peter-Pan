@@ -10,7 +10,7 @@ Attacker::Attacker(Player const& p)
 	:Player(p)
 {}
 
-void Attacker::act(Player* A, Player* B, Point ball)
+void Attacker::act(Player* A, Player* B, Point &ball)
 {
 	Point gate;
 	if(getPosition().getX()>60)

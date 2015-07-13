@@ -11,7 +11,7 @@ Goalkeeper::Goalkeeper(Player const& p, int _span)
 	:Player(p), span(_span)
 {}
 
-void Goalkeeper::specialMove(Player* A, Player* B, Point ball)
+void Goalkeeper::act(Player* A, Player* B, Point &ball)
 {
 	Point gate;
 	Player* myTeam = (iAmInTheTeam(A))? A : B;

@@ -69,8 +69,7 @@ public:
 
 	bool operator==(Player const&);
 
-	//virtual void specialMove(Point, Player*);
-	virtual void act(Player*, Player*, Point);
+	virtual void act(Player*, Player*, Point&);
 };
 
 #endif // PLAYER_H_INCLUDED

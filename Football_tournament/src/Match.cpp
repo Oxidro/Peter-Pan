@@ -6,6 +6,8 @@ Match::Match(Team _team1, Team _team2) :
 {
 	game.setNameA(A.getTeamName());
 	game.setNameB(B.getTeamName());
+	setZones();
+	setStartPosition();
 }
 
 void Match::setStartPosition()
@@ -64,13 +66,17 @@ void Match::playMatch()
 
 	ball(59,45);
 	game.Update(ball);
-	for (int min = 1; min <= 90; min++)
+
+	for (int halfMin = 1; halfMin <= 180; halfMin++)
 	{
 		for (int i = 0; i < 11; i++)
 		{
 			(&A.getPlayers()[i])->act(A.getPlayers(),B.getPlayers(), ball);
 			(&B.getPlayers()[i])->act(A.getPlayers(),B.getPlayers(), ball);
-			cout<<game.getBall();
+		}
+		if(halfMin%6==0)
+		{
+			//game.print();
 		}
 	}
 }

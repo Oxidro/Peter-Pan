@@ -38,6 +38,7 @@ int main()
 	players[9]=Attacker(Player(23, 6, "Juan Carlos Perez", 3, 37, 3));
 	players[10]=Attacker(Player(24, 11, "Marcial Pina", 6, 25, 0));
 
+
 	Team A("NameA", players);
 
 	Player p [17];

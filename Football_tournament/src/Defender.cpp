@@ -5,7 +5,7 @@ Defender::Defender(Player const& p, int _aggression)
 	:Player(p), aggression(_aggression)
 {}
 
-void Defender::act(Player* A, Player* B, Point ball)
+void Defender::act(Player* A, Player* B, Point &ball)
 {
 	Player* myTeam;
 	Player* enemyTeam;

@@ -15,7 +15,7 @@ class Attacker : public Player
 public:
 	Attacker(Player const&);
 	virtual ~Attacker() {};
-	void act(Player*, Player*, Point);
+	void act(Player*, Player*, Point&);
 };
 
 #endif /* ATTACKER_H_ */

@@ -17,7 +17,7 @@ private:
 public:
 	Goalkeeper(Player const&, int);
 	virtual ~Goalkeeper() {};
-	void specialMove(Player*, Player*, Point);
+	void act(Player*, Player*, Point&);
 };
 
 #endif /* GOALKEEPER_H_ */

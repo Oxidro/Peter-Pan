@@ -4,49 +4,16 @@ using namespace std;
 #include "Point.h"
 #include "Match.h"
 #include "string.h"
-#include "global.h"
 
-Player::Player(char* _name, int _speed, int _strenght, int _accuracity)
+Player::Player(int _id, int _number, std::string _name, int _speed, int _strenght, int _accuracity)
 {
-    setName(_name);
+	id=_id;
+	number=_number;
+    name=_name;
     speed=_speed;
     strenght=_strenght;
     accuracity=_accuracity;
 }
-
-Player::Player(const Player& other)
-:name(NULL), zone(other.zone), number(other.number), position(other.position), speed(other.speed), strenght(other.strenght), accuracity(other.accuracity)
-{
-    setName(other.name);
-}
-
-Player& Player::operator=(const Player& other)
-{
-	if(this!=&other)
-		return *this;
-	delete[] name;
-	setName(other.name);
-	//id=other.id;
-	zone=other.zone;
-    number=other.number;
-    position=other.position;
-    speed=other.speed;
-    strenght=other.strenght;
-    accuracity=other.accuracity;
-    return *this;
-}
-Player::~Player(){
-    delete[] name;
-}
-
-void Player::setName(char* _name){
-    if(name!=NULL){
-        delete[] name;
-    }
-    name= new char[strlen(_name)+1];
-    strcpy(name,_name);
-}
-
 
 bool Player::iCanGetTheBall(Player* A, Player* B, Point ball) {
 	Player* p = A;
@@ -135,21 +102,37 @@ bool Player::iAmInTheTeam(Player* team) {
 	return false;
 }
 
+Point Player::getHolderPosition(Player* team, Point ball)
+{
+	Point point;
+	for(int i=0; i<11; i++)
+	{
+		if(team[i].getPosition()==ball)
+			point=team[i].getPosition();
+	}
+	return point;
+}
+
 void Player::passTheBall(Player* players, Point ball)
 {
     Player nearbyTeammates[11];
-    int j=0;
+    int j=-1;
     for(int i=0; i<11; i++)
     {
     	Point teammatePosition = players[i].getPosition();
         if(teammatePosition<=position+strenght && teammatePosition>=position-strenght)
             nearbyTeammates[j++]=players[i];
     }
-    ball=nearbyTeammates[rand() % j].getPosition();
+    if(j>=0)
+    {
+		ball=nearbyTeammates[rand() % j].getPosition();
+		Notify(ball);
+    }
 }
 
 void Player::randomShot(Point ball)
 {
 	Point shootTo((position.getX()+rand() % getStrenght() + 1) , (position.getY()+rand() % getAccuracity()+ -getAccuracity()));
 	ball=shootTo;
+	Notify(ball);
 }

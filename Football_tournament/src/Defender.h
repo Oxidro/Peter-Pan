@@ -14,9 +14,9 @@ class Defender : public Player
 {
 private:
 	int aggression;
-	int superPower;
 public:
-	virtual ~Defender();
+	Defender(Player const&, int);
+	virtual ~Defender() {};
 	void act(Player*, Player*, Point);
 };
 

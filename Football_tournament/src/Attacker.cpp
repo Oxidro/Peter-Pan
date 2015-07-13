@@ -6,6 +6,10 @@
  */
 #include "Attacker.h"
 
+Attacker::Attacker(Player const& p)
+	:Player(p)
+{}
+
 void Attacker::act(Player* A, Player* B, Point ball)
 {
 	Point gate;
@@ -18,9 +22,9 @@ void Attacker::act(Player* A, Player* B, Point ball)
 		if(getPosition().distance(gate)>=getStrenght()) {
 			Point shootTo(gate.getX(), gate.getY()+rand() % 4 + (-4));
 			ball(shootTo.getX(), shootTo.getY() + rand() % getAccuracity() + (-getAccuracity()));
+			Notify(ball);
 		}else
 			randomShot(ball);
-
 	}else{
 		if (iAmCloseToTheBall(ball))
 			runToTheBall(A,B, ball);

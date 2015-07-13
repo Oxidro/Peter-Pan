@@ -7,23 +7,88 @@
 
 #include "Event.h"
 #include "Match.h"
+#include "Violation.h"
 
 Event::Event()
-: goalsOfTeamA(0), goalsOfTeamB(0), violationsA(), violationsB() {}
+: goalsOfTeamA(0), goalsOfTeamB(0), violationsA(), violationsB(), nameA(""), nameB("")
+{}
 
-std::ostream& operator<<(std::ostream& os, Event event)
+Event::Event(std::string _nameA, std::string _nameB)
+: goalsOfTeamA(0), goalsOfTeamB(0), violationsA(), violationsB()
 {
-//	os<<A.getTeamName()<<"                                  "<<B.getTeamName();
-	os<<"               "<<event.goalsOfTeamA<<":"<<event.goalsOfTeamB<<"                ";
-	os<<"Fals: "<<event.violationsA.noPunishment<<" Yellow Cards: "<<event.violationsA.yellowCards<<" Red Cards: "<<event.violationsA.redCards<<" Fals: "<<event.violationsB.noPunishment<<" Yellow Cards: "<<event.violationsB.yellowCards<<" Red Cards: "<<event.violationsB.redCards;
-
-	return os;
+	nameA=_nameA;
+	nameB=_nameB;
 }
 
-void Event::locationBall(Point ball){
-    //take the location of the ball in the match and translate it into words, so it is printable
-    //ball=match.ball??? how to get the ball from the match
-
-    ;
+Event::Event(Event const& e)
+: ball(e.ball), goalsOfTeamA(e.goalsOfTeamA), goalsOfTeamB(e.goalsOfTeamB), violationsA(e.violationsA), violationsB(e.violationsB)
+{
+	nameA=e.nameA;
+	nameB=e.nameB;
 }
 
+void Event::addViolation(Violation violation, char c)
+{
+	bool flag=false;
+	if(c=='A')
+	{
+		for(unsigned i=0; i<violationsA.size(); i++)
+		{
+			if(violationsA[i].getPlayer()==violation.getPlayer())
+			{
+				flag=true;
+				violationsA[i].setNoPunishment(violationsA[i].getNoPunishment() + violation.getNoPunishment());
+				violationsA[i].setYellowCards(violationsA[i].getYellowCards() + violation.getYellowCards());
+				violationsA[i].setRedCards(violationsA[i].getRedCards() + violation.getRedCards());
+			}
+		}
+		if(!flag)
+			violationsA.push_back(violation);
+	}
+	else
+	{
+		for(unsigned i=0; i<violationsB.size(); i++)
+		{
+			if(violationsB[i].getPlayer()==violation.getPlayer())
+			{
+				violationsB[i].setNoPunishment(violationsB[i].getNoPunishment() + violation.getNoPunishment());
+				violationsB[i].setYellowCards(violationsB[i].getYellowCards() + violation.getYellowCards());
+				violationsB[i].setRedCards(violationsB[i].getRedCards() + violation.getRedCards());
+			}
+		}
+		if(!flag)
+			violationsB.push_back(violation);
+	}
+}
+
+void Event::print()
+{
+	cout<<nameA<<"\t\t\t"<<nameB;
+	cout<<"\t\t\t\t\t"<<goalsOfTeamA<<":"<<goalsOfTeamB<<"\t"<<ball<<endl;
+	cout<<"Violations of: "<<nameA;
+	for(unsigned i=0; i<violationsA.size(); i++)
+	{
+		cout<<violationsA[i]<<" ";
+	}
+	cout<<endl<<"Violations of: "<<nameB;;
+	for(unsigned i=0; i<violationsB.size(); i++)
+	{
+		cout<<violationsB[i]<<" ";
+	}
+}
+
+void Event::Update(int x, int y)
+{
+	goalsOfTeamA+=x;
+	goalsOfTeamB+=y;
+}
+
+void Event::Update(Point const& p)
+{
+	ball=p;
+}
+
+void Event::Update(Violation const& v, char c)
+{
+	addViolation(v, c);
+}

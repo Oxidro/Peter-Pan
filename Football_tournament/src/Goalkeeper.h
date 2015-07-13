@@ -15,7 +15,8 @@ class Goalkeeper : public Player
 private:
 	int span; //arms spread + small jump to a side
 public:
-	virtual ~Goalkeeper();
+	Goalkeeper(Player const&, int);
+	virtual ~Goalkeeper() {};
 	void specialMove(Player*, Player*, Point);
 };
 

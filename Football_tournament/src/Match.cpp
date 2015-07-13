@@ -1,7 +1,12 @@
 #include "Match.h"
+#include "Event.h"
 
 Match::Match(Team _team1, Team _team2) :
-		A(_team1), B(_team2) {}
+		A(_team1), B(_team2)
+{
+	game.setNameA(A.getTeamName());
+	game.setNameB(B.getTeamName());
+}
 
 void Match::setStartPosition()
 {
@@ -51,11 +56,21 @@ void Match::setZones()
 
 void Match::playMatch()
 {
+	for(int i=0; i<=10; i++)
+	{
+		A.getPlayers()[i].Attach(game);
+		B.getPlayers()[i].Attach(game);
+	}
+
 	ball(59,45);
-	for (int min = 1; min <= 90; min++) {
-		for (int i = 0; i < 11; i++) {
-			A.getPlayers()[i].act(A.getPlayers(),B.getPlayers(), ball);
-			B.getPlayers()[i].act(A.getPlayers(),B.getPlayers(), ball);
+	game.Update(ball);
+	for (int min = 1; min <= 90; min++)
+	{
+		for (int i = 0; i < 11; i++)
+		{
+			(&A.getPlayers()[i])->act(A.getPlayers(),B.getPlayers(), ball);
+			(&B.getPlayers()[i])->act(A.getPlayers(),B.getPlayers(), ball);
+			cout<<game.getBall();
 		}
 	}
 }

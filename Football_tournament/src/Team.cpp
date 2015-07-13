@@ -10,96 +10,42 @@
 #include "Team.h"
 using namespace std;
 
-void printStr(char *str)
-{
-	char* pointerToStr = str;
-	while (*pointerToStr) {
-		cout << *pointerToStr++;
-	}
-}
 Team::Team()
-{
-	teamName = new char[51];
-}
+	:teamName(""), players(NULL)
+{}
 
-Team::Team(char* _name, Player* _players)
+Team::Team(std::string _name, Player* _players)
 {
 	teamName=_name;
-	players=_players;
+	setPlayers(_players);
 }
 
-void Team::setTeamName(char* _teamName)
+void Team::setPlayers(Player* p)
 {
-	int len = strlen(_teamName);
-	delete[] teamName;
-	teamName = new char[len + 1];
-	strcpy(teamName, _teamName);
-	teamName[len + 1] = '\0';
+	players=new Player[17];
+	for(int i=0; i<17; i++)
+	{
+		players[i]=p[i];
+	}
 }
 
-Team::Team(const Team& t) :teamName(NULL)
+Team::Team(const Team& t) :players(NULL)
 {
-	setTeamName(t.teamName);
+	teamName=t.teamName;
+	setPlayers(t.players);
 }
 
 Team& Team::operator=(const Team& t)
 {
 	if (this == &t)
 		return *this;
-
-	setTeamName(t.teamName);
+	teamName=t.teamName;
+	delete[] players;
+	setPlayers(t.players);
 	return *this;
 }
 
 Team::~Team()
 {
-	delete teamName;
+	delete[] players;
 }
-
-
-/*
- void Player::print()
- {
- cout<<"Name: ";
- printStr(name);
- }
-
- void Team::addPlayer(Player *p)
- {
- players[++top]=p;
- }
-
- void Team::removePlayer(Player *p)
- {
- for(int i=0; i<=top; i++)
- {
- if(p==players[i])
- {
- i++;
- players[i-1]=players[i];
- }
- }
- top--;
- }
- void Team::printTeam()
- {
- cout<<"Team name: "<<teamName<<endl;
- cout<<"Group: "<<group<<endl;
- cout<<"Players: "<<endl;
- for(int i=0; i<=top; i++)
- {
- printStr(players[i]->getName());
- }
- }
- void Team::printTeamStatistics()
- {
- cout<<"Team name W   D   L   GD   Pts";
- for(int i=0; i<3; i++)
- {
- shortName(teamName[i]);
- }
- cout<<won<<"       "<<draw<<"   "<<lost<<"   "<<goalDifference<<"   "<<totalPoints;
-
- }
- */
-

@@ -18,7 +18,7 @@ private:
 	Team A;
 	Team B;
 	Point ball;
-	//Event game;
+	Event game;
 
 public:
 	Match();

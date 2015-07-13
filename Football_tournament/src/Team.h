@@ -8,25 +8,27 @@
 #ifndef CLASSTEAM_H_
 #define CLASSTEAM_H_
 
+#include <string>
+
 #include "Player.h"
 
 class Team {
 private:
-	char* teamName;
+	std::string teamName;
 	Player* players;
 
 public:
 	Team();
-	Team(char*, Player*);
+	Team(std::string, Player*);
 	Team(const Team&);
 	Team &operator=(const Team&);
 	~Team();
 
 	Player* getPlayers(){return players;};
-	char* getTeamName() {return teamName;}
+	std::string getTeamName() {return teamName;}
 	Team* getTeam() {return this;}
-	void setTeamName(char* _teamName);
 
+	void setPlayers(Player*);
 	bool hasPlayer(Player p);
 
 	void printTeam();

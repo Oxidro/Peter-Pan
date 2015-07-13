@@ -10,9 +10,11 @@
 
 #include "Player.h"
 
-class Attacker : Player
+class Attacker : public Player
 {
-	virtual ~Attacker();
+public:
+	Attacker(Player const&);
+	virtual ~Attacker() {};
 	void act(Player*, Player*, Point);
 };
 
